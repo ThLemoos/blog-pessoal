@@ -220,3 +220,30 @@ body {
     display: block;
     margin: 0 auto; /* centraliza a imagem */
 }
+
+.caixas-frases {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.frase {
+    border: 2px solid #000;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.titulo {
+    background-color: aqua;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 5px 5px 5px black;
+    text-shadow: 2px 2px 2px white;
+    color: black;
+    font-family: verdana;
+}
