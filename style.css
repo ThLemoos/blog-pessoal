@@ -137,3 +137,13 @@ body {
     padding: 0;
 }
 
+.conteudo {
+    text-align: center;
+    margin-top: 50px;
+
+    /* Centraliza verticalmente, opcional */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
