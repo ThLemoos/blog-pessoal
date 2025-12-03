@@ -240,16 +240,4 @@ body {
     box-sizing: border-box;
 }
 
-/* Correção para telas pequenas */
-@media (max-width: 768px) {
-    .caixa-conteudo {
-        width: 100%;
-        padding: 15px;
-    }
-
-    .frase {
-        font-size: 14px;
-        padding: 12px;
-    }
-}
 
