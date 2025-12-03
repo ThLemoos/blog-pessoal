@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Fundo da página inicial */
 .hero {
     background-image: url('img/fundo.jpg');
@@ -66,3 +67,73 @@ body {
     margin: 0;
     padding: 0;
 }
+=======
+/* Fundo da página inicial */
+.hero {
+    background-image: url('img/fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* Boxes */
+.boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+.box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    transition: transform .2s;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+.box img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Botão voltar */
+.voltar {
+    display: inline-block;
+    background: #008cff;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.voltar:hover {
+    background: #0066c7;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+>>>>>>> 5b4546c6b8301da111a41fc95e11f719dc37f7ea
