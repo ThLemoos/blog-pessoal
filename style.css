@@ -226,16 +226,30 @@ body {
     flex-direction: column;
     gap: 15px;
     margin-top: 30px;
+    width: 100%;
 }
 
 .frase {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
     border: 2px solid #000;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 12px;
     background-color: #f5f5f5;
     font-size: 16px;
     text-align: center;
     font-weight: bold;
+    box-sizing: border-box;
+}
+
+/* Ajustes específicos para celular */
+@media (max-width: 600px) {
+    .frase {
+        font-size: 14px;
+        padding: 12px;
+        border-radius: 10px;
+    }
 }
 
 .titulo {
