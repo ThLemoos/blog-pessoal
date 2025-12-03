@@ -147,3 +147,10 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.oi {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* centraliza a imagem */
+}
