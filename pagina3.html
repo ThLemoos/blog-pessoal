@@ -3,16 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 3</title>
+    <title>Destino 1</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script/senha.js"></script>
+
+        <script>
+            function verificarCodigo() {
+            const codigoCorreto = "NAOMEMATA";
+            const digitado = document.getElementById("codigo").value;
+
+            if (digitado === codigoCorreto) {
+            window.location.href = "paginaExtra2.html";
+            } else {
+            document.getElementById("erro").style.display = "block";
+            }
+        }
+        </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.80);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            backdrop-filter: blur(5px);
+            transition: opacity 0.3s ease;
+        }
+
+        .box-login {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 350px;
+            text-align: center;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .box-login h2 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .box-login input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255,255,255,0.25);
+            color: white;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .box-login button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            background: #ff4747;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .box-login button:hover {
+            background: #ff2222;
+        }
+
+        .erro {
+            margin-top: 10px;
+            color: #ffb3b3;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+    </style>
+
 </head>
 <body class="pagina1">
+
+    <div id="telaSenha" class="overlay">
+        <div class="box-login">
+            <h2>🔒 Acesso Restrito</h2>
+            <p>Digite a senha para acessar:</p>
+            <p>Dica de senha: <i>"Data do dia em que eu te pedi em namoro"</i></p>
+
+        <form onsubmit="verificarSenha(); return false;">
+            <input type="password" id="senhaDigitada" placeholder="Senha">
+
+            <button onclick="verificarSenha()">Entrar</button>
+        </form>
+
+            <p id="erro" class="erro"></p>
+        </div>
+    </div>
 
     <a class="voltar" href="index.html">Voltar</a>
 
     <div class="caixa-conteudo">
-        <h1>TEIMOSA!</h1>
-        <img class="oi" src="img/volteDepois.png">>
+        <h1>O Começo de Tudo</h1>
+        <img class="oi" src="">
+        <p class="paragrafo1">Hoje eu preparei algo especial para você.</p>
+        <p class="paragrafo1">
+            Não é só um passeio.<br>
+            Não é só uma surpresa.<br>
+            é uma experiência feita com amor, pensada em cada detalhe.
+        </p>
+        <p class="paragrafo1">
+            Para começar, vá até o primeiro lugar onde toda a surpresa começa:<br>
+            Um lugar de carinho, acolhimento e boas memórias.
+        </p>
+        <div class="frase">
+            <p>📍 Primeiro destino: Minha casa ❤️</p>
+            <adress>           
+            <p>Endereço: Rua divisão, 69</p>
+            </adress>
+        </div>
+        <p class="paragrafo1">
+            Lá, alguém muito importante para mim<br>
+            estará esperando você com um gesto simples,<br>
+            mas cheio de significado.
+        </p>
+        <p class="paragrafo1">
+            Após chegar no endereço, você receberá instruções <br>
+            para achar um código que desbloqueará o próximo destino.
+        </p>
+
+         <section class="checkin">
+            <h2>📍 Check-in do momento</h2>
+
+            <p>
+                Tire uma foto deste instante especial <br>
+                e envie para mim.  
+                Quero guardar cada passo do nosso dia ❤️
+            </p>
+
+            <a 
+                href="https://wa.me/5521975930204"
+                target="_blank"
+                class="btn-checkin">
+                📸 Enviar check-in pelo WhatsApp
+            </a>
+
+            <small>
+                *Ao clicar, tire a foto e envie no WhatsApp 💕
+            </small>
+        </section>
+
+        <div class="caixa-codigo">
+            <input type="text" id="codigo" placeholder="Digite o código do próximo destino 💌">
+
+            <button class="btn-romantico" onclick="verificarCodigo()">
+                💖 Desbloquear próximo destino
+            </button>
+
+            <p id="erro">Código incorreto 💔</p>
+        </div>
     </div>
 
 </body>
