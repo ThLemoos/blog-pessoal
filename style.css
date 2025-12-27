@@ -344,3 +344,29 @@ body {
     font-size: 16px;
   }
 }
+
+.galeria {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.galeria h2 {
+  margin-bottom: 20px;
+}
+
+.fotos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+.fotos img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  transition: transform .3s;
+}
+
+.fotos img:hover {
+  transform: scale(1.05);
+}
