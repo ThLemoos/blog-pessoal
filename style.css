@@ -212,6 +212,7 @@ body {
 .paragrafo1 {
     text-align: justify;
     text-justify: inter-word;
+    line-height: 1.5;
 }
 
 .linda {
@@ -369,4 +370,43 @@ body {
 
 .fotos img:hover {
   transform: scale(1.05);
+}
+
+.convite {
+    margin-top: 40px;
+    padding: 25px;
+    background: rgba(255, 192, 203, 0.15);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.convite h2 {
+    margin-bottom: 15px;
+    color: #d6336c;
+}
+
+.input-prato {
+    width: 90%;
+    max-width: 400px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+.btn-enviar {
+    background: #d6336c;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-enviar:hover {
+    background: #b52a5a;
+    transform: scale(1.05);
 }
