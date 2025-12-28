@@ -16,9 +16,7 @@
             return;
         }
 
-        const mensagem = `Oi meu amor
-Aceito o convite pro almoço
-Meu prato favorito é: ${prato} `;
+        const mensagem = `${prato} `;
 
         const numero = "5521975930204";
         const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
@@ -78,25 +76,20 @@ Meu prato favorito é: ${prato} `;
             <div class="fotos">
                 <img src="img/chekinFinal1.jpeg" alt="Nós Dois">
             </div>
-        </section><br>
-        <p class="paragrafo1">
-            E pra deixar esse nosso dia ainda mais especial…<br>
-            Quero te convidar para um almoço aqui em casa, feito por mim, com todo carinho do mundo.<br>
-            Me conta aqui qual é o seu prato favorito, que eu prometo preparar tudo do jeito que você ama. 🍽️❤️
-        </p>
-        <section class="convite">
+            <section class="convite">
             <h2>Um convite especial 💌</h2>
 
             <p class="paragrafo1">
                 Quero te convidar para um almoço aqui em casa, feito por mim,
                 com todo carinho do mundo.<br>
-                Me conta qual é o seu prato favorito que eu preparo pra você nesse dia especial ❤️
+                Podemos almoçar e depois assistir uma das suas séries favoritas, o que acha?<br>
+                Pode me responder digitando abaixo:
             </p>
 
         <input 
             type="text" 
             id="prato" 
-            placeholder="Digite aqui seu prato favorito 🍝"
+            placeholder="Digite aqui"
             class="input-prato"
         >
 
