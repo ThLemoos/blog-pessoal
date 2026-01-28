@@ -410,3 +410,56 @@ body {
     background: #b52a5a;
     transform: scale(1.05);
 }
+
+.texto-suspense {
+    margin-top: 20px;
+    font-size: 18px;
+    opacity: 0.85;
+}
+
+.btn-revelar {
+    margin-top: 10px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    background: #ff4747;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-revelar:hover {
+    background: #ff2222;
+}
+
+.imagem-surpresa {
+    display: block;
+    margin: 30px auto 0 auto;
+
+    width: 100%;
+    max-width: 300px;
+
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+
+@media (max-width: 480px) {
+    .caixa-conteudo {
+        padding: 15px;
+    }
+
+    .texto-suspense {
+        font-size: 16px;
+    }
+
+    .btn-revelar {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .imagem-surpresa {
+        max-width: 90%;
+    }
+}
