@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,90 +8,101 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="img/fundo.jpg">
 
-        <script>
-            function verificarCodigo() {
+    <script>
+        function verificarCodigo() {
             const codigoCorreto = "FALTAPOUCO";
             const digitado = document.getElementById("codigo").value;
 
             if (digitado === codigoCorreto) {
-            window.location.href = "paginaExtra3.html";
+                window.location.href = "paginaExtra3.html";
             } else {
-            document.getElementById("erro").style.display = "block";
+                document.getElementById("erro").style.display = "block";
             }
         }
-        </script>
+    </script>
 
 </head>
-<body class="pagina1">
 
-    <a class="voltar" href="pagina3.html">Voltar</a>
-
-    <div class="caixa-conteudo">
-        <h1>Surpresas que aquecem o coração</h1>
-        <img class="oi" src="">
-        <p class="paragrafo1">
-            Você chegou até aqui.<br>
-            E eu espero que seu coração esteja sorrindo.
-        </p>
-        <p class="paragrafo1">
-            Algumas surpresas são doces.<br>
-            Outras, aquecem a alma.<br>
-            A próxima é um pouco dos dois.
-        </p>
-        <div class="frase">
-            <p>📍 Segundo destino: Casa de alguém que gosta muito de você 💕</p>
-            <adress>           
-            <p>Endereço: Av. Antonio Cunha 1795</p>
-            </adress>
+<body>
+    <header class="cabecalho">
+        <div class="caixa-conteudo">
+            <h1>Surpresas que aquecem o coração</h1>
+            <a href="pagina3.html" class="btn-voltar">
+                ⬅ Voltar
+            </a>
         </div>
-        <p class="paragrafo1">
-            Lá você vai receber um pequeno presente<br>
-            e mais algumas palavras escritas com carinho.
-        </p>
-        <p class="paragrafo1">
-            Leia com atenção.<br>
-            Cada carta é um pedaço do que sinto por você.
-        </p>
-
-        <section class="checkin">
-            <h2>📍 Check-in do momento</h2>
-
-            <p>
-                Tire uma foto deste instante especial <br>
-                e envie para mim.  
-                Quero guardar cada passo do nosso dia ❤️
+    </header>
+    <main class="conteudo2">
+        <section class="conteudo-box">
+            <img class="oi" src="">
+            <p class="paragrafo1">
+                Você chegou até aqui.<br>
+                E eu espero que seu coração esteja sorrindo.
+            </p>
+            <p class="paragrafo1">
+                Algumas surpresas são doces.<br>
+                Outras, aquecem a alma.<br>
+                A próxima é um pouco dos dois.
             </p>
 
-            <a 
-                href="https://wa.me/5521975930204"
-                target="_blank"
-                class="btn-checkin">
-                📸 Enviar check-in pelo WhatsApp
-            </a>
-
-            <small>
-                *Ao clicar, tire a foto e envie no WhatsApp 💕
-            </small>
+            <div class="frase">
+                <p>📍 Segundo destino: Casa de alguém que gosta muito de você 💕</p>
+                <adress>
+                    <p>Endereço: Av. Antonio Cunha 1795</p>
+                </adress>
+            </div>
+            <p class="paragrafo1">
+                Lá você vai receber um pequeno presente<br>
+                e mais algumas palavras escritas com carinho.
+            </p>
+            <p class="paragrafo1">
+                Leia com atenção.<br>
+                Cada carta é um pedaço do que sinto por você.
+            </p>
         </section>
 
-        <div class="caixa-codigo">
-            <input type="text" id="codigo" placeholder="FALTAPOUCO">
+        <section class="conteudo-box">
+            <section class="checkin">
+                <h2>📍 Check-in do momento</h2>
 
-            <button class="btn-romantico" onclick="verificarCodigo()">
-                💖 Desbloquear Destino Final<br>
-                Está pronta?
-            </button>
+                <p>
+                    Tire uma foto deste instante especial <br>
+                    e envie para mim.
+                    Quero guardar cada passo do nosso dia ❤️
+                </p>
 
-            <p id="erro">Código incorreto 💔</p>
-        </div>
-        <section class="galeria">
-            <h2>📸 Segundo Check-in</h2>
+                <a href="https://wa.me/5521975930204" target="_blank" class="btn-checkin">
+                    📸 Enviar check-in pelo WhatsApp
+                </a>
 
-            <div class="fotos">
-                <img src="img/segundoChekin.jpeg" alt="Segundo Destino">
+                <small>
+                    *Ao clicar, tire a foto e envie no WhatsApp 💕
+                </small>
+            </section>
+
+            <div class="caixa-codigo">
+                <input type="text" id="codigo" placeholder="FALTAPOUCO">
+
+                <button class="btn-romantico" onclick="verificarCodigo()">
+                    💖 Desbloquear Destino Final<br>
+                    Está pronta?
+                </button>
+
+                <p id="erro">Código incorreto 💔</p>
             </div>
         </section>
-    </div>
+
+        <section class="conteudo-box">
+            <section class="galeria">
+                <h2>📸 Segundo Check-in</h2><br>
+
+                <div class="fotos">
+                    <img src="img/segundoChekin.jpeg" alt="Segundo Destino">
+                </div>
+            </section>
+        </section>
+    </main>
 
 </body>
+
 </html>
