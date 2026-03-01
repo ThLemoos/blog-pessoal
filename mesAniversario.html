@@ -58,17 +58,10 @@
                 assim como você fica presente nos meus pensamentos todos os dias.<br><br>
 
                 Agora vem a parte importante:<br><br>
-
-                Vá até o lugar onde você costuma guardar aquilo que te deixa ainda mais linda antes de sair.<br>
-                Procure com calma.<br>
-                Tem uma pequena surpresa esperando por você.<br><br>
-
-                E isso…
-                é só o começo do seu mês.
             </p>
         </section>
 
-        <section class="conteudo-box">
+        <section class="conteudo-box" id="missao">
 
             <h2>Missão Março: Capítulo 1</h2>
 
@@ -89,21 +82,33 @@
             <div id="pista1" style="display:none;">
                 <p>
                     Primeira pista:
-                    O que estou procurando não está dentro deste quarto.
+                    Vá até a sala da sua casa.
+                    Procure com atenção.
+                    Pode estar mais perto do que você imagina.
                 </p>
-                <button onclick="mostrarPista2()">Próxima pista</button>
+                <button onclick="mostrarPista2()">Não achei 😕</button>
             </div>
 
             <div id="pista2" style="display:none;">
                 <p>
                     Segunda pista:
-                    Está em um lugar que te leva para muitos destinos...
-                    mas hoje vai te levar a uma surpresa.
+                    Talvez eu tenha me confundido...
+                    Vá até a cozinha e procure por lá.
                 </p>
-                <button onclick="mostrarPista3()">Última pista</button>
+                <button onclick="mostrarPista3()">Ainda não está aqui 😐</button>
             </div>
 
             <div id="pista3" style="display:none;">
+                <p>
+                    Interessante...
+                    Então o presente definitivamente não está
+                    nem na sala
+                    nem na cozinha.
+                </p>
+                <button onclick="mostrarPistaFinal()">Então onde está? 👀</button>
+            </div>
+
+            <div id="pistaFinal" style="display:none;">
                 <p>
                     Última pista:
                     Vá até onde você segura o volante
@@ -118,17 +123,54 @@
         </section>
     </main>
     <script>
+
         function mostrarPista1() {
-            document.getElementById("pista1").style.display = "block";
+            carregarProxima("pista1");
         }
 
         function mostrarPista2() {
-            document.getElementById("pista2").style.display = "block";
+            carregarProxima("pista2");
         }
 
         function mostrarPista3() {
-            document.getElementById("pista3").style.display = "block";
+            carregarProxima("pista3");
         }
+
+        function mostrarPistaFinal() {
+            carregarProxima("pistaFinal");
+        }
+
+        function carregarProxima(idPista) {
+
+            if (document.getElementById("loadingMsg")) return;
+
+            const caixa = document.getElementById("missao");
+
+            const loading = document.createElement("p");
+            loading.id = "loadingMsg";
+            loading.style.marginTop = "15px";
+            loading.style.fontWeight = "bold";
+            loading.style.color = "#ff4d88";
+            loading.style.fontSize = "18px";
+
+            caixa.appendChild(loading);
+
+            let dots = 0;
+
+            const interval = setInterval(() => {
+                dots = (dots + 1) % 4;
+                loading.innerText = "Carregando próxima pista" + ".".repeat(dots);
+            }, 500);
+
+            setTimeout(() => {
+                clearInterval(interval);
+                loading.remove();
+
+                document.getElementById(idPista).style.display = "block";
+
+            }, 5000);
+        }
+
     </script>
 </body>
 
