@@ -584,24 +584,23 @@ body {
     box-shadow: 0 4px 15px rgba(255, 77, 136, 0.3);
 }
 
-/* Hover */
 .conteudo-box button:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(255, 77, 136, 0.5);
     background: linear-gradient(135deg, #ff3366, #ff80a0);
 }
 
-/* Clique */
 .conteudo-box button:active {
     transform: scale(0.96);
 }
 
-/* Centralizar melhor */
 .conteudo-box {
     text-align: center;
 }
 
-#pista1, #pista2, #pista3 {
+#pista1,
+#pista2,
+#pista3 {
     animation: fadeIn 0.6s ease-in-out;
 }
 
@@ -610,6 +609,7 @@ body {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
