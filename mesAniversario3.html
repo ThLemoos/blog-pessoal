@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Março - O Mês da Sua Vida</title>
+
+    <link rel="icon" type="image/png" href="img/fundo.jpg">
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #ffe6ee, #ffd6e7);
+            margin: 0;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .btn-musica {
+            margin-top: 80px;
+            background: linear-gradient(135deg, #ff4d88, #ff8fab);
+            border: none;
+            color: white;
+            padding: 15px 35px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cartas-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 120px;
+            /* aumentei o espaço */
+            margin-top: 80px;
+            padding-bottom: 120px;
+        }
+
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background: #ff8fab;
+            position: relative;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            margin-bottom: 80px;
+        }
+
+        .tampa {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 100px solid #ff4d88;
+            transform-origin: top;
+            transition: 1s;
+        }
+
+        .carta {
+            position: absolute;
+            background: white;
+            width: 260px;
+            min-height: 140px;
+            left: 20px;
+            top: 40px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(40px);
+            opacity: 0;
+            transition: 1s;
+        }
+
+        .envelope.aberto .tampa {
+            transform: rotateX(180deg);
+        }
+
+        .envelope.aberto .carta {
+            transform: translateY(-20px);
+            opacity: 1;
+        }
+
+        .carta p {
+            font-size: 17px;
+            line-height: 1.6;
+            min-height: 80px;
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -20px;
+            font-size: 20px;
+            animation: subir 6s linear forwards;
+            opacity: 0.8;
+        }
+
+        @keyframes subir {
+
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0.9;
+            }
+
+            100% {
+                transform: translateY(-110vh) scale(1.4);
+                opacity: 0;
+            }
+
+        }
+
+        .petala {
+            position: fixed;
+            top: -20px;
+            font-size: 18px;
+            animation: cair 8s linear forwards;
+            opacity: 0.9;
+        }
+
+        @keyframes cair {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+
+        }
+
+        .cabecalho {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .titulo-box {
+
+            background: white;
+            padding: 25px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 500px;
+
+        }
+
+        .titulo-box h1 {
+
+            margin: 0;
+            font-size: 32px;
+            color: #333;
+
+        }
+
+        .titulo-box p {
+
+            margin-top: 10px;
+            color: #666;
+
+        }
+
+        .btn-voltar {
+
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #ff4d88;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 14px;
+
+        }
+
+        .btn-voltar:hover {
+
+            background: #ff2f74;
+
+        }
+
+        .contador-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #ffe6ee;
+            border-radius: 10px;
+        }
+
+        .contador-titulo {
+            margin: 0;
+            font-weight: bold;
+            color: #444;
+        }
+
+        #contador {
+            margin-top: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff2f74;
+        }
+
+        .btn-proxima {
+            margin-top: 15px;
+            padding: 8px 18px;
+            border: none;
+            background: #ff4d88;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-proxima:hover {
+            background: #ff2f74;
+        }
+
+        .btn-abrir {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff4d88;
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.4s;
+        }
+
+        .btn-abrir.mostrar {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .btn-abrir:hover {
+            background: #ff2f74;
+        }
+
+        .envelope.tremendo {
+            animation: tremer 0.6s ease;
+        }
+
+        @keyframes tremer {
+
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(-2deg);
+            }
+
+            50% {
+                transform: rotate(2deg);
+            }
+
+            75% {
+                transform: rotate(-1deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+
+        }
+
+        .frase-final {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            font-size: 42px;
+            font-weight: bold;
+            color: #ff2f74;
+            text-shadow: 0 0 10px rgba(255, 47, 116, 0.6),
+                0 0 20px rgba(255, 47, 116, 0.4),
+                0 0 40px rgba(255, 47, 116, 0.3);
+            opacity: 0;
+            transition: 1.5s;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .frase-final.mostrar {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .foto-final {
+            position: fixed;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            opacity: 0;
+            transition: 2s;
+
+            pointer-events: none;
+            /* não bloquear cliques */
+            z-index: 500;
+            /* ficar acima das cartas */
+        }
+
+        .foto-final img {
+            width: 220px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .foto-final.mostrar {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <div class="titulo-box">
+            <h1>Março: O Mês Literalmente da Sua Vida!</h1>
+            <p><b>Data: 13/03/2026</b></p>
+
+            <div class="contador-box">
+                <p class="contador-titulo">Contagem para o seu dia especial 🎂</p>
+                <div id="contador"></div>
+            </div>
+
+            <a href="index.html" class="btn-voltar">
+                ⬅ Voltar para o início
+            </a>
+        </div>
+    </header>
+    <main>
+
+        <section id="intro">
+
+            <button onclick="iniciarExperiencia()" class="btn-musica">
+                ❤️ Toque aqui antes de continuar
+            </button>
+
+        </section>
+
+        <audio id="musica" loop>
+            <source src="music/Edd_Sheeran_-_Perfect_(mp3.pm).mp3" type="audio/mp3">
+        </audio>
+
+        <section class="cartas-container">
+
+            <div class="envelope">
+
+                <div class="tampa"></div>
+
+                <div class="carta">
+                    <p
+                        data-text="Hoje o presente é um pouco diferente. Cartas escritas fisicamente são boas, mas nada como deixar cartas guardadas no lugar que fiz pra você sempre se sentir especial, amada e diferente de qualquer outra pessoa.">
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="envelope">
+
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 Abrir carta</button>
+
+                <div class="tampa"></div>
+
+                <div class="carta">
+                    <p
+                        data-text="Hoje o presente não é físico mas sim algo pensado com muito carinho na pessoa que você é pra mim. Na minha concepção isso vale mais do que qualquer coisa.">
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="envelope">
+
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 Abrir carta</button>
+
+                <div class="tampa"></div>
+
+                <div class="carta">
+                    <p
+                        data-text="Existem pessoas que passam pela nossa vida… e existem pessoas que mudam completamente a forma como a gente vê o mundo.">
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="envelope">
+
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 Abrir carta</button>
+
+                <div class="tampa"></div>
+
+                <div class="carta">
+                    <p
+                        data-text="Desde que você entrou na minha vida, os dias ficaram mais leves, os planos ficaram maiores e o futuro começou a parecer mais bonito.">
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="envelope">
+
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 Abrir carta</button>
+
+                <div class="tampa"></div>
+
+                <div class="carta">
+                    <p data-text="Você não é só alguém especial para mim. Você é alguém que eu admiro profundamente.">
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="envelope">
+
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 Abrir carta</button>
+
+                <div class="tampa"></div>
+
+                <div class="carta">
+                    <p
+                        data-text="E hoje eu só queria registrar isso aqui: você é uma das melhores coisas que já aconteceram na minha vida.">
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="envelope">
+
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 Abrir carta</button>
+
+                <div class="tampa"></div>
+
+                <div class="carta">
+                    <p
+                        data-text="E como você me faz tão bem não tem porque de eu não te fazer se sentir especial sempre que eu puder.">
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="envelope">
+
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 Abrir carta</button>
+
+                <div class="tampa"></div>
+
+                <div class="carta">
+                    <p
+                        data-text="Seu dia está perto de chegar, o dia em que você celebra mais um ano de vida e mais um ano de conquista. Você cresceu e tem crescido muito nesses últimos meses. Você é incrível, você é invencível!">
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="envelope">
+
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 Abrir carta</button>
+
+                <div class="tampa"></div>
+
+                <div class="carta">
+                    <p
+                        data-text="Se algum dia você duvidar do quanto é importante para mim… volte nesta página e leia essas cartas novamente.">
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+
+        function iniciarExperiencia() {
+
+            document.getElementById("musica").play()
+
+            iniciarCoracoes()
+
+            iniciarPetalas()
+
+            const envelopes = document.querySelectorAll(".envelope")
+
+            envelopes[0].classList.add("tremendo")
+
+            setTimeout(() => {
+
+                envelopes[0].classList.remove("tremendo")
+
+                envelopes[0].classList.add("aberto")
+
+                digitarTexto(envelopes[0].querySelector("p"))
+
+                const segundo = envelopes[1].querySelector(".btn-abrir")
+
+                setTimeout(() => {
+                    segundo.classList.add("mostrar")
+                }, 1500)
+
+            }, 600)
+
+        }
+
+        function iniciarCoracoes() {
+
+            setInterval(() => {
+
+                const heart = document.createElement("div");
+
+                heart.className = "heart";
+
+                heart.innerHTML = "❤️";
+
+                heart.style.left = Math.random() * 100 + "vw";
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+
+                    heart.remove();
+
+                }, 6000);
+
+            }, 700);
+
+        }
+
+        function iniciarPetalas() {
+
+            setInterval(() => {
+
+                const petala = document.createElement("div");
+
+                petala.className = "petala";
+
+                petala.innerHTML = "🌹";
+
+                petala.style.left = Math.random() * 100 + "vw";
+
+                document.body.appendChild(petala);
+
+                setTimeout(() => {
+
+                    petala.remove();
+
+                }, 8000);
+
+            }, 1200);
+
+        }
+
+        function abrirCartas() {
+
+            const primeiroBotao = document.querySelector(".btn-abrir")
+
+            primeiroBotao.classList.add("mostrar")
+
+        }
+
+        function abrirEsteEnvelope(botao) {
+
+            const envelope = botao.parentElement
+
+            envelope.classList.add("tremendo")
+
+            setTimeout(() => {
+
+                envelope.classList.remove("tremendo")
+                envelope.classList.add("aberto")
+
+                const texto = envelope.querySelector("p")
+                digitarTexto(texto)
+
+                botao.classList.remove("mostrar")
+
+                const envelopes = document.querySelectorAll(".envelope")
+                const index = Array.from(envelopes).indexOf(envelope)
+
+                const proximo = envelope.nextElementSibling
+
+                if (proximo) {
+
+                    const botaoProximo = proximo.querySelector(".btn-abrir")
+
+                    setTimeout(() => {
+                        botaoProximo.classList.add("mostrar")
+                    }, 1500)
+
+                }
+
+                /* SE FOR A ÚLTIMA CARTA */
+
+                if (index === envelopes.length - 1) {
+
+                    setTimeout(() => {
+
+                        explosaoFinal()
+
+                        const frase = document.getElementById("fraseFinal")
+                        if (frase) {
+                            frase.classList.add("mostrar")
+                        }
+
+                        const foto = document.getElementById("fotoFinal")
+                        if (foto) {
+                            foto.classList.add("mostrar")
+                        }
+
+                    }, 5000)
+
+                }
+
+            }, 600)
+
+        }
+
+        function digitarTexto(elemento) {
+
+            const texto = elemento.getAttribute("data-text");
+
+            let i = 0;
+
+            function digitar() {
+
+                if (i < texto.length) {
+
+                    elemento.innerHTML += texto.charAt(i);
+
+                    i++;
+
+                    setTimeout(digitar, 35);
+
+                }
+
+            }
+
+            digitar();
+
+        }
+
+    </script>
+
+    <script>
+
+        function atualizarContador() {
+
+            const dataAniversario = new Date("Mar 21, 2026 00:00:00").getTime();
+
+            const agora = new Date().getTime();
+
+            const diferenca = dataAniversario - agora;
+
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+
+            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+
+            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+            document.getElementById("contador").innerHTML =
+                dias + " dias • " +
+                horas + " horas • " +
+                minutos + " min • " +
+                segundos + " seg";
+
+        }
+
+        setInterval(atualizarContador, 1000);
+
+        atualizarContador();
+
+    </script>
+
+    <script>
+        function explosaoFinal() {
+
+            for (let i = 0; i < 40; i++) {
+
+                setTimeout(() => {
+
+                    const heart = document.createElement("div")
+
+                    heart.className = "heart"
+
+                    heart.innerHTML = "❤️"
+
+                    heart.style.left = Math.random() * 100 + "vw"
+
+                    heart.style.fontSize = (20 + Math.random() * 30) + "px"
+
+                    document.body.appendChild(heart)
+
+                    setTimeout(() => {
+                        heart.remove()
+                    }, 4000)
+
+                }, i * 120)
+
+            }
+
+        }
+
+        function mostrarFraseFinal() {
+
+            const frase = document.getElementById("fraseFinal")
+
+            frase.classList.add("mostrar")
+
+        }
+
+        function mostrarFotoFinal() {
+
+            const foto = document.getElementById("fotoFinal")
+
+            foto.classList.add("mostrar")
+
+        }
+
+    </script>
+
+    <div id="fraseFinal" class="frase-final">
+        ❤️ Eu te amo muito ❤️
+    </div>
+
+    <div id="fotoFinal" class="foto-final">
+        <img src="img/thiagoBruna.jpg" alt="Nós dois">
+    </div>
+
+</body>
+
+</html>
