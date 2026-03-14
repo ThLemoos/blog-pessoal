@@ -615,3 +615,51 @@ body {
         transform: translateY(0);
     }
 }
+
+.box-aniversario {
+    position: relative;
+    overflow: hidden;
+}
+
+.cadeado-box {
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    font-size: 30px;
+
+    transition: 1s;
+}
+
+.box-aniversario.aberto .cadeado-box {
+
+    transform: rotate(360deg) scale(1.2);
+
+}
+
+.contador-box {
+
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+
+    background: rgba(0, 0, 0, 0.3);
+    padding: 6px;
+    border-radius: 8px;
+
+}
+
+.box.bloqueado {
+
+    pointer-events: none;
+    opacity: 0.7;
+
+}
+
+.box-aniversario.aberto {
+
+    pointer-events: auto;
+    opacity: 1;
+
+}
