@@ -28,7 +28,7 @@
     position: relative;
     height: 80vh;
 
-    background: url("img/imgFundoNosDois.jpeg") center/cover no-repeat;
+    background: url("img/brunaFundoConteudo2.png") center/cover no-repeat;
 
     display: flex;
     align-items: center;
@@ -933,7 +933,7 @@ body {
     position: relative;
     height: 60vh;
 
-    background: url("img/fundoPaginasConteudo.png") center/cover no-repeat;
+    background: url("img/brunaFundoConteudo2.png") center/cover no-repeat;
 
     display: flex;
     align-items: center;
