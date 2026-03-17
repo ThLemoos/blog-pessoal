@@ -793,39 +793,83 @@ body {
     overflow: hidden;
 }
 
+/* BLOQUEADA (MELHORADA) */
+.box.bloqueado {
+
+    pointer-events: none;
+    opacity: 0.5;
+    filter: grayscale(60%);
+
+}
+
+/* CADEADO */
 .cadeado-box {
 
     position: absolute;
     top: 10px;
     right: 10px;
 
-    font-size: 30px;
+    font-size: 26px;
 
-    transition: 1s;
+    animation: pulse 2s infinite;
+
 }
 
+/* ANIMAÇÃO DO CADEADO */
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+/* ABRINDO */
 .box-aniversario.aberto .cadeado-box {
 
+    animation: none;
     transform: rotate(360deg) scale(1.2);
 
 }
 
+/* CONTADOR MELHORADO */
 .contador-box {
 
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 14px;
+    margin-top: 12px;
 
-    background: rgba(0, 0, 0, 0.3);
-    padding: 6px;
-    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    display: inline-block;
 
 }
 
-.box.bloqueado {
+/* MOBILE */
+@media (max-width: 600px) {
 
-    pointer-events: none;
-    opacity: 0.7;
+    .boxes {
+        padding: 25px 15px;
+        gap: 18px;
+    }
+
+    .box h3 {
+        font-size: 16px;
+    }
 
 }
 
