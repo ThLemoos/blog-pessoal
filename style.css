@@ -981,3 +981,62 @@ body {
     opacity: 0.8;
     margin-bottom: 15px;
 }
+
+/* ============================================ */
+
+/* HEADER NOVO PEDIDO DE NAMORO */
+.header-pagina-aliancas {
+
+    position: relative;
+    height: 60vh;
+
+    background: url("img/aliancasFundo.jpg") center/cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* overlay escuro */
+.header-overlay-aliancas {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.7));
+
+}
+
+/* conteúdo do header */
+.header-conteudo-novo-aliancas {
+
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+    color: white;
+
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+
+}
+
+.header-conteudo-novo-aliancas h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.header-conteudo-novo-aliancas p {
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
