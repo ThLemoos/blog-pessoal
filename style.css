@@ -223,10 +223,11 @@
 }
 
 body {
-    background: #ff8478;
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(180deg, #ff8478, #ff4d6d);
 }
 
 .conteudo {
@@ -239,11 +240,50 @@ body {
     align-items: center;
 }
 
+/* CSS ANTIGO DAS FOTOS DAS PÁGINAS DE CONTEÚDO
 .oi {
     max-width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
+}
+
+.linda {
+    max-width: 100%;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
+}
+*/
+
+.oi {
+
+    width: 100%;
+    max-width: 500px;
+    /* controla o tamanho máximo */
+
+    height: auto;
+
+    display: block;
+    margin: 0 auto;
+
+    border-radius: 16px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+}
+
+.linda {
+
+    border-radius: 16px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+    transition: 0.4s;
+}
+
+.linda:hover {
+    transform: scale(1.03);
 }
 
 .musica {
@@ -358,12 +398,26 @@ body {
 }
 
 .conteudo-box {
+
     max-width: 900px;
     margin: 0 auto 32px;
-    background: #ffffff;
-    padding: 28px;
-    border-radius: 18px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+
+    backdrop-filter: blur(6px);
+
+    transition: 0.3s;
+}
+
+/* leve animação */
+.conteudo-box:hover {
+    transform: translateY(-5px);
 }
 
 .conteudo-box h2 {
@@ -493,13 +547,6 @@ body {
     text-align: justify;
     text-justify: inter-word;
     line-height: 1.5;
-}
-
-.linda {
-    max-width: 100%;
-    height: 500px;
-    display: block;
-    margin: 0 auto;
 }
 
 .caixas-frases {
@@ -878,4 +925,61 @@ body {
     pointer-events: auto;
     opacity: 1;
 
+}
+
+/* HEADER NOVO (PÁGINAS INTERNAS) */
+.header-pagina {
+
+    position: relative;
+    height: 60vh;
+
+    background: url("img/fundoPaginasConteudo.png") center/cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* overlay escuro */
+.header-overlay {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.7));
+
+}
+
+/* conteúdo do header */
+.header-conteudo-novo {
+
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+    color: white;
+
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+
+}
+
+.header-conteudo-novo h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.header-conteudo-novo p {
+    opacity: 0.8;
+    margin-bottom: 15px;
 }
