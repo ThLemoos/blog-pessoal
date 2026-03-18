@@ -16,43 +16,19 @@
             background: linear-gradient(135deg, #ff4d88, #ff9ab5);
             color: white;
             text-align: center;
-            padding: 40px;
-        }
-
-        /* BOTÃO VOLTAR */
-
-        .btn-voltar {
-
-            position: absolute;
-            top: 20px;
-            left: 20px;
-
-            padding: 10px 16px;
-            background: white;
-            color: #ff4d88;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 10px;
-
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-
-            transition: 0.3s;
-
-        }
-
-        .btn-voltar:hover {
-
-            transform: scale(1.05);
-
         }
 
         .caixa {
 
             max-width: 700px;
-            margin: auto;
+
+            margin: 60px auto;
+            /* 👈 AQUI resolve o "colado" */
+
             background: rgba(0, 0, 0, 0.35);
             padding: 40px;
             border-radius: 20px;
+
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 
         }
@@ -81,11 +57,34 @@
         input {
 
             margin-top: 20px;
-            padding: 12px;
-            border-radius: 10px;
-            border: none;
+            padding: 14px 16px;
+
             width: 80%;
+            max-width: 400px;
+
+            border-radius: 12px;
+
+            border: 2px solid transparent;
+
+            outline: none;
+
             font-size: 16px;
+
+            background: #f5f5f5;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+            transition: all 0.3s ease;
+
+        }
+
+        input:focus {
+
+            border: 2px solid #ff4d88;
+
+            background: white;
+
+            box-shadow: 0 0 0 4px rgba(255, 77, 136, 0.2);
 
         }
 
@@ -123,50 +122,176 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 
         }
+
+        .caixa p {
+            text-align: left;
+        }
+
+        .charada p {
+            text-align: center;
+        }
+
+        .btn-padrao {
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 12px 22px;
+
+            border-radius: 30px;
+            border: none;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            text-decoration: none;
+            color: white;
+
+            background: linear-gradient(135deg, #ff4d88, #b3003c);
+
+            box-shadow: 0 6px 18px rgba(255, 77, 136, 0.4);
+
+            transition: all 0.3s ease;
+        }
+
+        .btn-padrao:hover {
+
+            transform: translateY(-3px);
+
+            background: linear-gradient(135deg, #ff3366, #990033);
+
+            box-shadow: 0 10px 25px rgba(255, 77, 136, 0.6);
+        }
+
+        .btn-padrao:active {
+            transform: scale(0.96);
+        }
+
+        .header-pagina {
+
+            position: relative;
+
+            width: 100%;
+            height: 75vh;
+
+            background-image: url("img/fundoAniversario2.png");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .header-overlay {
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.3),
+                    rgba(0, 0, 0, 0.6));
+        }
+
+        .header-conteudo-novo {
+
+            position: relative;
+            z-index: 2;
+
+            text-align: center;
+            color: white;
+
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+
+            border-radius: 20px;
+
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .header-conteudo-novo h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .header-conteudo-novo p {
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
     </style>
 
 </head>
 
 <body>
 
-    <a href="index.html" class="btn-voltar">⬅ Início</a>
+    <header class="header-pagina">
+
+        <div class="header-overlay"></div>
+
+        <div class="header-conteudo-novo">
+            <h1>CHEGOU O SEU GRANDE DIA!</h1>
+            <p>21 de Março de 2026</p>
+
+            <a href="index.html" class="btn-padrao">
+                ⬅ Início
+            </a>
+        </div>
+    </header>
 
     <div class="caixa">
 
         <h1>Feliz aniversário, minha princesa ❤️</h1>
 
         <p>
-            Hoje não é apenas mais um dia no calendário.
-            Hoje é o dia em que o mundo ficou um pouco melhor sem nem perceber.
-            Porque foi exatamente no dia de hoje que nasceu uma pessoa que mais tarde iria mudar completamente a minha
+            Hoje não é apenas mais um dia no calendário.<br>
+            Hoje é o dia em que o mundo ficou um pouco melhor sem nem perceber.<br>
+            Porque foi exatamente no dia de hoje que nasceu uma pessoa que mais tarde iria mudar completamente a
+            minha
             vida.
         </p>
 
         <p>
-            Entre bilhões de pessoas no planeta...
-            eu tive a sorte absurda de encontrar você.
-            E desde então tudo ficou diferente.
-            Os dias ficaram mais leves.
-            Os planos ficaram maiores.
+            Entre bilhões de pessoas no planeta...<br>
+            eu tive a sorte absurda de encontrar você.<br>
+            E desde então tudo ficou diferente.<br>
+            Os dias ficaram mais leves.<br>
+            Os planos ficaram maiores.<br>
             E o futuro passou a ter muito mais sentido.
         </p>
 
         <p>
-            Você não é só alguém importante pra mim.
-            Você é alguém que eu admiro.
-            Alguém que eu respeito.
+            Você não é só alguém importante pra mim.<br>
+            Você é alguém que eu admiro.<br>
+            Alguém que eu respeito.<br>
             Alguém que eu tenho orgulho de ter ao meu lado.
         </p>
 
         <p>
-            E se um dia alguém me perguntar qual foi uma das melhores decisões da minha vida...
-            eu provavelmente vou responder:
+            E se um dia alguém me perguntar qual foi uma das melhores decisões da minha vida...<br>
+            eu provavelmente vou responder:<br>
             "ter escolhido amar você todos os dias."
         </p>
 
         <p>
-            Mas hoje não é só sobre palavras.
+            Mas hoje não é só sobre palavras.<br>
             Hoje também tem um pequeno mistério.
+        </p>
+
+        <p>
+            Você sabe o quanto eu gosto de te ver feliz e o quento eu gosto de fazer você se divertir.<br>
+            E não é só porque é seu aniversário que eu não pensaria em algo que possa te tirar umas risadas
+            ou querer me matar depois.
+        </p>
+
+        <p>
+            Então pensei em algo referente ao seu presente de aniversário.<br>
+            A situação é a seguinte:
         </p>
 
         <div class="charada">
@@ -182,8 +307,20 @@
             <p>
                 Se você conseguir adivinhar eu te entrego o presente <b>sem pegadinhas</b>.<br>
                 Caso contrário... seu presente será um pouco <b>diferenciado</b>.<br><br>
+                Seu presente de aniversário consiste em dois:<br><br>
+                Sendo um o presente real que é algo que você gosta.<br>
+                E o outro é algo que não seria considerado um presente<br>
+                (Bom... eu não gostaria de recebê-lo).<br><br>
+                Então, pense bem antes de responder a pergunta, porque errando as 5 alternativas eu posso pensar se
+                devo ou não te entregar o presente oficial que comprei pra você.<br><br>
 
-                <b>SEM DICAS, BOA SORTE!</b><br><br>
+                <b>ESSAS SÃO AS REGRAS: SEM DICAS, SEM PERGUNTAS E ERRANDO AS 5 ALTERNATIVAS
+                    ME DÁ A POSSIBILIDADE DE ESCOLHA DE ENTREGA OU NÃO DO SEU PRESENTE E VOCÊ SERÁ OBRIGADA
+                    A ABRIR ESSA CAIXA E DESCOBRIR POR SI SÓ O QUE TEM NELA.<br>
+                    SERÁ QUE É O PRESENTE OFICIAL OU NÃO?<br>
+                    QUE OS JOGOS COMECEM!</b><br><br>
+
+                Lembrando que:<br><br>
 
                 Você só terá <b>5 tentativas</b> de resposta.<br>
                 Então... <strong>PENSE BEM!</strong>
@@ -249,13 +386,12 @@
         }
 
         const dataLiberacao = new Date("Mar 21, 2026 00:00:00").getTime()
-
-        if (new Date().getTime() < dataLiberacao) {
-
-            document.body.innerHTML = "<h1>🔒 Surpresa ainda não liberada</h1>"
-
-        }
-
+ 
+         if (new Date().getTime() < dataLiberacao) {
+ 
+             document.body.innerHTML = "<h1>🔒 Surpresa ainda não liberada</h1>"
+ 
+         }
     </script>
 
 </body>
