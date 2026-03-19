@@ -301,7 +301,7 @@
             <p>O que será que tem nessa caixa?</p>
 
             <div class="imagem-charada">
-                <img src="img/thiagoBruna.jpg">
+                <img src="img/presenteAniversario.jpeg">
             </div>
 
             <p>
@@ -376,22 +376,28 @@
 
             } else {
 
-                resultado.innerHTML = "⚠️ Infelizmente você não conseguiu... agora as consequências virão."
+                resultado.innerHTML = "⚠️ Infelizmente você não conseguiu..."
                 resultado.style.color = "darkred"
 
                 document.getElementById("resposta").disabled = true
+
+                // 👇 abre seu WhatsApp
+                const numero = "5521975930204" // seu número com DDD
+                const mensagem = encodeURIComponent("Eu errei todas as tentativas :(")
+
+                window.open(`https://wa.me/${numero}?text=${mensagem}`, "_blank")
 
             }
 
         }
 
         const dataLiberacao = new Date("Mar 21, 2026 00:00:00").getTime()
- 
-         if (new Date().getTime() < dataLiberacao) {
- 
-             document.body.innerHTML = "<h1>🔒 Surpresa ainda não liberada</h1>"
- 
-         }
+
+        if (new Date().getTime() < dataLiberacao) {
+
+            document.body.innerHTML = "<h1>🔒 Surpresa ainda não liberada</h1>"
+
+        }
     </script>
 
 </body>
