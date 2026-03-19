@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nossa História</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: linear-gradient(135deg, #ff4d88, #ff9ab5);
+            color: white;
+        }
+
+        /* CONTAINER */
+        .timeline {
+            max-width: 900px;
+            margin: 80px auto;
+            position: relative;
+            padding: 20px;
+        }
+
+        /* LINHA */
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: #ff4d88;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        /* MOMENTOS */
+        .momento {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 60px 0;
+
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ANIMAÇÃO ATIVA */
+        .momento.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ALTERNAR LADO */
+        .momento:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* IMAGEM */
+        .momento img {
+            width: 260px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin: 0 40px;
+        }
+
+        /* TEXTO */
+        .texto {
+            width: 320px;
+            padding: 20px;
+
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+
+            backdrop-filter: blur(8px);
+
+            margin: 0 40px;
+        }
+
+        .texto h3 {
+            margin: 0 0 10px;
+            color: #fff;
+        }
+
+        .texto p {
+            margin: 0;
+            color: #f1f1f1;
+        }
+
+        /* BOLINHA */
+        .momento::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+
+            width: 16px;
+            height: 16px;
+
+            background: white;
+            border: 4px solid #ff4d88;
+
+            border-radius: 50%;
+
+            transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+
+        /* 📱 RESPONSIVO */
+        @media (max-width: 768px) {
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .momento {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 40px;
+            }
+
+            .momento:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .momento img {
+                width: 100%;
+                max-width: 320px;
+                margin: 0 0 15px 0;
+            }
+
+            .texto {
+                width: 100%;
+                margin: 0;
+            }
+
+            .momento::after {
+                left: 20px;
+                top: 20px;
+                transform: none;
+            }
+        }
+
+        .header-pagina {
+
+            position: relative;
+            height: 60vh;
+
+            background: url("img/fundoLinhaTempo.png") center/cover no-repeat;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .header-overlay {
+
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0.7));
+
+        }
+
+        .header-conteudo-novo {
+
+            position: relative;
+            z-index: 2;
+
+            text-align: center;
+            color: white;
+
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+
+            border-radius: 20px;
+
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .header-conteudo-novo h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .header-conteudo-novo p {
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .btn-padrao {
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 12px 22px;
+
+            border-radius: 30px;
+            border: none;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            text-decoration: none;
+            color: white;
+
+            background: linear-gradient(135deg, #ff4d88, #b3003c);
+
+            box-shadow: 0 6px 18px rgba(255, 77, 136, 0.4);
+
+            transition: all 0.3s ease;
+        }
+
+        .btn-padrao:hover {
+
+            transform: translateY(-3px);
+
+            background: linear-gradient(135deg, #ff3366, #990033);
+
+            box-shadow: 0 10px 25px rgba(255, 77, 136, 0.6);
+        }
+
+        .btn-padrao:active {
+            transform: scale(0.96);
+        }
+
+        .contador-container {
+            text-align: center;
+            margin: 120px auto;
+            /* mais espaço */
+            padding: 40px;
+
+            max-width: 700px;
+            /* 🔥 limita largura */
+
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .contador-container h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .contador-container p {
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+
+        .contador {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contador div {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: 12px;
+            min-width: 70px;
+        }
+
+        .contador span {
+            font-size: 28px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .contador small {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .timeline::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: 4px;
+            height: 150px;
+
+            background: linear-gradient(to bottom, #ff4d88, transparent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header-pagina">
+
+        <div class="header-overlay"></div>
+
+        <div class="header-conteudo-novo">
+            <h1>Uma linha do tempo só nossa contando o que vivemos até aqui</h1>
+            <p>18 de Março de 2026</p>
+
+            <a href="index.html" class="btn-padrao">
+                ⬅ Início
+            </a>
+        </div>
+
+    </header>
+
+    <div class="timeline">
+
+        <div class="momento">
+            <img src="img/vilaCarmary.webp">
+            <div class="texto">
+                <h3>Onde tudo começou</h3>
+                <p>
+                    O dia que nossas histórias se cruzaram...<br>
+                    Foi aqui que eu te vi pela primeira vez<br>
+                    Linda como sempre<br>
+                    Você nem me notou mas eu já estava doido pra te conhecer<br><br>
+                    Foi aqui que eu vi o potencial que você tem como mulher de Deus e
+                    como mulher incrível em todas as áreas possíveis da vida
+                </p>
+            </div>
+        </div>
+
+        <div class="momento">
+            <img src="img/inicioConversa.png">
+            <div class="texto">
+                <h3>Nossa primeira conversa</h3>
+                <p>Talvez você nem saiba, mas ali já começou tudo pra mim.</p><br>
+                <p>Finalmente eu tive a chance de poder conversar com você e te conhecer um pouco melhor</p>
+                <p>
+                    No Domingo após o culto na sua igreja eu vi uma notificação no meu celular: Bruna Victória
+                    pediu para seguir você.<br>
+                    Eu esperei chegar na segunda pra te mandar mensagem tentando não ser tão invasivo
+                    e esperando o momento certo pra não desperdiçãr a chance de conhecer a pessoa incrível que eu
+                    sempre soube que você era.
+                </p>
+            </div>
+        </div>
+
+        <div class="momento">
+            <img src="img/cantando.gif.gif">
+            <div class="texto">
+                <h3>Quando eu percebi</h3>
+                <p>Foi nesse momento que eu entendi o quanto você é especial.</p><br>
+                <p>
+                    Recebi um convite pra ir na igreja junto com você e nosso casal de amigos em comum.<br><br>
+                    Cheguei primeiro que você na igreja e quando a vi descendo do carro eu pensei comigo:
+                    Meu Deus, que mulher linda e posturada.<br>
+                    E você veio falar comigo, me deu um abraço e eu pensei de novo: MEU DEUS,
+                    que mulher linda, posturada e CHEIROSA demais.<br>
+                    E nesse dia eu pude segurar sua mão, sentir seu cuidado e carinho que você tem de sobra.
+                </p>
+            </div>
+        </div>
+
+        <div class="momento">
+            <img src="img/tabernaDoPeixe.png">
+            <div class="texto">
+                <h3>Depois de muita conversa e ler muito a frase "vamos com calma"</h3>
+                <p>
+                    Depois de muita conversa, muito entendimento decidimos juntos tomar uma decisão.<br><br>
+                    Em um dia de alguma semana qualquer estávamos conversando bastante, isso já era de noite.<br>
+                    No meio do assunto você me mostrou bem decidida do que queria em relação a nós e eu não poderia
+                    perder
+                    de novo essa chance.<br>
+                    Estávamos marcando de almoçar juntos só que nesse dia e pelo decorrer da nossa conversa esse seria o
+                    dia
+                    em que eu te pediria em namoro. Tanto que eu te disse por mensagem: "Então sexta-feira será uma
+                    sexta diferenciada."
+                    E realmente foi, aquela Sexta dia 28 de Novemro de 2025, o dia em que eu te olhei nos olhos e recebi
+                    o seu
+                    sim pra te ter como minha namorada, a mulher que faria os meus dias melhores e mais completos.
+                </p>
+            </div>
+        </div>
+        <div class="momento">
+            <img src="img/primeiroEncontro.jpg">
+            <div class="texto">
+                <h3>Ter você como minha companheira me faz sempre querer ser o melhor</h3>
+                <p>
+                    Primeira ida ao shopping. Mais uma vez você toda linda e cheirosa e disposta a ter algo realmente
+                    sério.<br>
+                    Cada momento do seu lado que eu vivi e vivo é como se fosse sempre algo novo.<br>
+                    E essa foto me retrata algo tão bom porque foi a nossa primeira foto que tiramos juntos.<br>
+                    E nesse dia eu pude ouvir você falar sobre suas coisas sentado naquela mesa do shopping enquanto
+                    comíamos um MC Donalds.<br>
+                    Como eu amo a sua inteligência no falar...
+                </p>
+            </div>
+        </div>
+        <div class="momento">
+            <img src="img/bruna1.png">
+            <div class="texto">
+                <h3>Só que nesse dia algo estranho aconteceu!!!</h3>
+                <p>Você foi ao banheiro do Shopping e voltou com uma ideia estranha</p>
+            </div>
+        </div>
+        <div class="momento">
+            <img src="img/bruna2.png">
+            <div class="texto">
+                <h3>E ai foi chegando perto andando um pouco rápido</h3>
+                <p>Eu sem entender nada...</p>
+            </div>
+        </div>
+        <div class="momento">
+            <img src="img/bruna3.png">
+            <div class="texto">
+                <h3>E começou a esticar o braço e vindo com a mão pra cima de mim</h3>
+                <p>Pareceia que queria o meu celular, que atitude estranha, pensei...</p>
+            </div>
+        </div>
+        <div class="momento">
+            <img src="img/bruna4.png">
+            <div class="texto">
+                <h3>E foi chegando muito mais perto</h3>
+                <p>Meu Deus o que está acontecendo?</p>
+            </div>
+        </div>
+        <div class="momento">
+            <img src="img/bruna5.png">
+            <div class="texto">
+                <h3>Quando então você pegou meu celular e saiu correndo</h3>
+                <p>tive que chamar a segurança do Shopping pra tentar te parar</p>
+            </div>
+        </div>
+        <div class="momento">
+            <img src="img/bruna6.png">
+            <div class="texto">
+                <h3>E essa foi a última imagem que tive da meliante que tentou pegar meu telefone</h3>
+                <p>
+                    Não se deixe enganar por esse sorriso lindo e sincero, ela queria meu celular e eu posso provar.<br>
+                    Foi o que eu disse quando fiz o Boletim de Ocorrência.
+                </p>
+            </div>
+        </div>
+        <div class="momento">
+            <img src="img/chekinFinal1.jpeg">
+            <div class="texto">
+                <h3>Mas a única coisa que você roubou mesmo foi o meu coração</h3>
+                <p>
+                    Passado um tempo juntos, dentre muitos acontecimentos eu preparei uma surpresa que deveria chegar ao
+                    nível
+                    de mulher que você é. Uma surpresa digna e merecedora do seu sorriso, do seu amor e da sua
+                    alegria.<br>
+                    Essa sim foi de novo uma das maiores certezas que eu tive na minha vida. Esse foi com certeza um dos
+                    melhores
+                    dias que eu tive ao seu lado.<br>
+                    Você estava deslumbrante e com um sorriso incrível.
+                </p>
+            </div>
+        </div>
+        <div class="momento">
+            <img src="img/thiagoBruna.jpg">
+            <div class="texto">
+                <h3>Hoje</h3>
+                <p>
+                    E hoje eu só tenho certeza de uma coisa: eu escolheria você de novo ❤️<br>
+                    O mês é seu, mas eu não poderia deixar de falar um pouco de nós.<br>
+                    E agora eu me preparo pra passar o dia que é importante na sua vida junto com você.<br><br>
+                    Mas porque não dizer o quanto você é perfeita e o quanto eu te amo mesmo antes do seu
+                    aniversário?<br>
+                    Aliás, você merece ser presenteada todos os dias com amor, respeito, compreensão, atenção e tudo o
+                    que
+                    há de melhor que eu possa te entregar como homem.<br><br>
+                    Sinta-se especial e amada todos os dias, porque você é tudo o que eu imaginei um dia em ter como
+                    mulher.<br>
+                    PODE TER CERTEZA DISSO.<br><br>
+                    E que venha o dia 21 de Março ❤️
+                </p>
+            </div>
+        </div>
+
+        <div class="contador-container">
+
+            <h2>⏳ Falta pouco...</h2>
+            <p>para o seu dia especial 💖</p>
+
+            <div class="contador">
+                <div><span id="dias">0</span><small>Dias</small></div>
+                <div><span id="horas">0</span><small>Horas</small></div>
+                <div><span id="minutos">0</span><small>Min</small></div>
+                <div><span id="segundos">0</span><small>Seg</small></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        /* ANIMAÇÃO AO ROLAR */
+        const momentos = document.querySelectorAll('.momento')
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show')
+                }
+            })
+        }, {
+            threshold: 0.2
+        })
+
+        momentos.forEach(m => observer.observe(m))
+
+        const dataAniversario = new Date("Mar 21, 2026 00:00:00").getTime()
+
+        function atualizarContador() {
+
+            const agora = new Date().getTime()
+            const diferenca = dataAniversario - agora
+
+            if (diferenca <= 0) {
+                document.querySelector(".contador-container").innerHTML =
+                    "<h2>🎉 Chegou o grande dia!!!</h2>"
+                return
+            }
+
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24))
+            const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24)
+            const minutos = Math.floor((diferenca / (1000 * 60)) % 60)
+            const segundos = Math.floor((diferenca / 1000) % 60)
+
+            document.getElementById("dias").innerText = dias
+            document.getElementById("horas").innerText = horas
+            document.getElementById("minutos").innerText = minutos
+            document.getElementById("segundos").innerText = segundos
+        }
+
+        setInterval(atualizarContador, 1000)
+        atualizarContador()
+
+    </script>
+
+</body>
+
+</html>
