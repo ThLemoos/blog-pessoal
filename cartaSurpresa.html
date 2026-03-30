@@ -55,84 +55,49 @@
         }
 
         .envelope {
-            width: 90%;
-            max-width: 340px;
+            width: 340px;
             height: 220px;
             background: #ff8fab;
             position: relative;
-            border-radius: 8px;
-            margin: auto;
+            border-radius: 5px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .tampa {
             position: absolute;
-
             width: 0;
             height: 0;
-
             border-left: 170px solid transparent;
             border-right: 170px solid transparent;
             border-top: 110px solid #ff4d88;
-
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-
+            left: 0;
             transform-origin: top;
             transition: 1s;
-        }
-
-        @media (max-width: 480px) {
-            .tampa {
-                border-left: 45vw solid transparent;
-                border-right: 45vw solid transparent;
-                border-top: 100px solid #ff4d88;
-            }
         }
 
         .carta {
             position: absolute;
             background: white;
-
-            width: 90%;
-            max-width: 300px;
-
-            left: 50%;
-            transform: translateX(-50%) translateY(40px);
-
+            width: 300px;
+            left: 20px;
             top: 40px;
-            padding: 20px;
-
-            border-radius: 10px;
-
+            padding: 25px;
+            border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
+            transform: translateY(40px);
             opacity: 0;
-            transition: 1s;
+            transition: 1s ease;
         }
 
-        .carta p {
-            font-size: 15px;
-            line-height: 1.7;
-            text-align: left;
-        }
-
-        @media (max-width: 480px) {
-            .carta {
-                width: 92%;
-                padding: 18px;
-            }
-
-            .carta p {
-                font-size: 14px;
-            }
-        }
-
+        /* TEXTO BONITO */
         #texto {
             font-size: 16px;
             line-height: 1.8;
             text-align: left;
             white-space: pre-line;
+            /* 🔥 ISSO FAZ PULAR LINHA */
             color: #333;
         }
 
@@ -147,7 +112,7 @@
         }
 
         .envelope.aberto .carta {
-            transform: translateX(-50%) translateY(-20px);
+            transform: translateY(-20px);
             opacity: 1;
         }
 
@@ -164,6 +129,7 @@
             cursor: pointer;
         }
 
+        /* 📱 RESPONSIVO */
         @media (max-width: 480px) {
 
             .envelope {
@@ -189,7 +155,7 @@
 
     <header class="cabecalho">
         <div class="titulo-box">
-            <h1>Leia com calma que isso foi total de coração ❤️</h1>
+            <h1>Uma carta pra você ❤️</h1>
             <a href="index.html" class="btn-voltar">⬅ Voltar</a>
         </div>
     </header>
@@ -204,7 +170,7 @@
 
             <div class="carta">
                 <p id="texto"></p>
-                <div class="assinatura">— Com amor, Thiago Lemos ❤️</div>
+                <div class="assinatura">— Com amor, ❤️</div>
             </div>
 
         </div>
