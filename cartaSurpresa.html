@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Carta Pra Você ❤️</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #ffe6ee, #ffd6e7);
+            margin: 0;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .cabecalho {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .titulo-box {
+            background: white;
+            padding: 25px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .titulo-box h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #ff4d88;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+        }
+
+        .btn-voltar:hover {
+            background: #ff2f74;
+        }
+
+        .cartas-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+            padding: 20px;
+        }
+
+        .envelope {
+            width: 340px;
+            height: 220px;
+            background: #ff8fab;
+            position: relative;
+            border-radius: 5px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .tampa {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 170px solid transparent;
+            border-right: 170px solid transparent;
+            border-top: 110px solid #ff4d88;
+            top: 0;
+            left: 0;
+            transform-origin: top;
+            transition: 1s;
+        }
+
+        .carta {
+            position: absolute;
+            background: white;
+            width: 300px;
+            left: 20px;
+            top: 40px;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+            transform: translateY(40px);
+            opacity: 0;
+            transition: 1s ease;
+        }
+
+        #texto {
+            font-size: 16px;
+            line-height: 1.8;
+            text-align: left;
+            white-space: pre-line;
+            color: #333;
+        }
+
+        .assinatura {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ff2f74;
+        }
+
+        .envelope.aberto .tampa {
+            transform: rotateX(180deg);
+        }
+
+        .envelope.aberto .carta {
+            transform: translateY(-20px);
+            opacity: 1;
+        }
+
+        .btn-abrir {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff4d88;
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 480px) {
+
+            .envelope {
+                width: 90%;
+                height: 200px;
+            }
+
+            .tampa {
+                border-left: 45vw solid transparent;
+                border-right: 45vw solid transparent;
+                border-top: 90px solid #ff4d88;
+            }
+
+            .carta {
+                width: 85%;
+                left: 7.5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <div class="titulo-box">
+            <h1>Leia com calma que isso foi total de coração ❤️</h1>
+            <a href="index.html" class="btn-voltar">⬅ Voltar</a>
+        </div>
+    </header>
+
+    <div class="cartas-container">
+
+        <div class="envelope">
+
+            <button class="btn-abrir" onclick="abrirCarta()">💌 Abrir carta</button>
+
+            <div class="tampa"></div>
+
+            <div class="carta">
+                <p id="texto"></p>
+                <div class="assinatura">— Com amor, Thiago Lemos ❤️</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const mensagem = `Amor, essa semana que passou eu fiquei bem pensativo…
+Talvez eu tenha parecido um pouco mais quieto ou distante em alguns momentos, mas foi só coisa da minha cabeça mesmo refletindo sobre a vida...
+
+Eu gosto muito da nossa conexão, de estar com você e perceber o quanto você é incrível em tudo: no jeito que fala, no jeito que vive, no jeito que é.
+
+Eu tô numa correria grande com trabalho, futuro e tudo que eu quero construir… mas no meio disso tudo eu percebi algo muito forte: antes era só eu por mim, e hoje não é mais assim.
+
+Você entrou na minha vida com esse seu jeito todo seu… e você não tem noção do impacto que causou em mim, de uma forma muito boa.
+
+Hoje eu penso em ser melhor por mim, sim… mas também com você do meu lado. Você faz parte da força que eu tenho pra buscar tudo que eu quero.
+
+Eu sei que ainda não tô onde eu quero chegar, e às vezes isso mexe comigo. Mas eu não posso parar. E ter você comigo faz tudo ter mais sentido.
+
+E quando você fala sobre Deus, sobre propósito, sobre caminhar junto, isso toca muito em mim.
+
+Hoje eu parei pra pensar no quanto eu amo coisas simples com você…
+
+Você não tem noção do quanto eu amo o seu jeito.
+
+Você é muito importante pra mim, Bruna.
+
+Eu amo você ❤️`;
+
+        function abrirCarta() {
+
+            const envelope = document.querySelector(".envelope");
+            envelope.classList.add("aberto");
+
+            const texto = document.getElementById("texto");
+
+            setTimeout(() => {
+                texto.textContent = mensagem;
+            }, 400);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
