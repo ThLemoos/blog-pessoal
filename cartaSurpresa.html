@@ -11,26 +11,35 @@
             font-family: Arial, Helvetica, sans-serif;
             background: linear-gradient(135deg, #ffe6ee, #ffd6e7);
             margin: 0;
-            text-align: center;
-            overflow-x: hidden;
-        }
-
-        .cabecalho {
             display: flex;
             justify-content: center;
-            margin-top: 30px;
         }
 
-        .titulo-box {
+        .container {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+        }
+
+        /* 🔥 HEADER PADRÃO NOVO */
+        .header {
             background: white;
-            padding: 25px 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
-        .titulo-box h1 {
+        .header h1 {
             margin: 0;
+            font-size: 22px;
             color: #333;
+        }
+
+        .sub {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
         }
 
         .btn-voltar {
@@ -40,36 +49,43 @@
             background: #ff4d88;
             color: white;
             text-decoration: none;
-            border-radius: 20px;
+            border-radius: 25px;
+            font-size: 14px;
         }
 
         .btn-voltar:hover {
             background: #ff2f74;
         }
 
-        .cartas-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 100px;
-            padding: 20px;
+        /* 💌 CARD */
+        .card {
+            background: white;
+            margin-top: 30px;
+            padding: 30px 20px 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            text-align: center;
         }
 
+        /* 📩 ENVELOPE */
         .envelope {
-            width: 340px;
-            height: 220px;
+            width: 100%;
+            max-width: 320px;
+            height: 200px;
             background: #ff8fab;
+            margin: 0 auto;
             position: relative;
-            border-radius: 5px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
         }
 
         .tampa {
             position: absolute;
             width: 0;
             height: 0;
-            border-left: 170px solid transparent;
-            border-right: 170px solid transparent;
-            border-top: 110px solid #ff4d88;
+            border-left: 160px solid transparent;
+            border-right: 160px solid transparent;
+            border-top: 100px solid #ff4d88;
             top: 0;
             left: 0;
             transform-origin: top;
@@ -79,11 +95,11 @@
         .carta {
             position: absolute;
             background: white;
-            width: 300px;
-            left: 20px;
-            top: 40px;
-            padding: 25px;
-            border-radius: 8px;
+            width: 85%;
+            left: 7.5%;
+            top: 30px;
+            padding: 20px;
+            border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
             transform: translateY(40px);
@@ -91,18 +107,16 @@
             transition: 1s ease;
         }
 
-        /* TEXTO BONITO */
         #texto {
-            font-size: 16px;
-            line-height: 1.8;
+            font-size: 15px;
+            line-height: 1.7;
             text-align: left;
             white-space: pre-line;
-            /* 🔥 ISSO FAZ PULAR LINHA */
             color: #333;
         }
 
         .assinatura {
-            margin-top: 20px;
+            margin-top: 15px;
             font-weight: bold;
             color: #ff2f74;
         }
@@ -116,36 +130,26 @@
             opacity: 1;
         }
 
+        /* 🔥 BOTÃO BONITO */
         .btn-abrir {
-            position: absolute;
-            top: -60px;
-            left: 50%;
-            transform: translateX(-50%);
+            margin-top: 20px;
             background: #ff4d88;
             color: white;
             border: none;
-            padding: 10px 22px;
+            padding: 12px 25px;
             border-radius: 25px;
             cursor: pointer;
+            font-size: 14px;
         }
 
-        /* 📱 RESPONSIVO */
+        .btn-abrir:hover {
+            background: #ff2f74;
+        }
+
         @media (max-width: 480px) {
-
-            .envelope {
-                width: 90%;
-                height: 200px;
-            }
-
             .tampa {
                 border-left: 45vw solid transparent;
                 border-right: 45vw solid transparent;
-                border-top: 90px solid #ff4d88;
-            }
-
-            .carta {
-                width: 85%;
-                left: 7.5%;
             }
         }
     </style>
@@ -153,25 +157,30 @@
 
 <body>
 
-    <header class="cabecalho">
-        <div class="titulo-box">
-            <h1>Leia com calma, foi feito com o coração</h1>
+    <div class="container">
+
+        <!-- ❤️ HEADER NOVO -->
+        <div class="header">
+            <h1>Leia com calma, foi feito com o coração 💖</h1>
+            <div class="sub">Cada palavra aqui tem um pedacinho de você</div>
             <a href="index.html" class="btn-voltar">⬅ Voltar</a>
         </div>
-    </header>
 
-    <div class="cartas-container">
+        <!-- 💌 CARD -->
+        <div class="card">
 
-        <div class="envelope">
+            <div class="envelope">
+
+                <div class="tampa"></div>
+
+                <div class="carta">
+                    <p id="texto"></p>
+                    <div class="assinatura">— Com amor, Thiago Lemos ❤️</div>
+                </div>
+
+            </div>
 
             <button class="btn-abrir" onclick="abrirCarta()">💌 Abrir carta</button>
-
-            <div class="tampa"></div>
-
-            <div class="carta">
-                <p id="texto"></p>
-                <div class="assinatura">— Com amor, Thiago Lemos❤️</div>
-            </div>
 
         </div>
 
@@ -192,18 +201,15 @@ Hoje eu penso em ser melhor por mim, sim! Mas também com você do meu lado. Voc
 
 Eu sei que ainda não tô onde eu quero chegar, e às vezes isso mexe comigo. Mas eu não posso parar. E ter você comigo faz tudo ter mais sentido.
 
-E quando você fala sobre Deus, sobre propósito, sobre caminhar junto, isso toca muito em mim. Eu também acredito que não é por acaso tudo isso que estamos vivendo. Eu vejo em você alguém que Deus colocou na minha vida pra caminhar ao meu lado, crescer junto e construir algo com propósito de verdade.
+E quando você fala sobre Deus, sobre propósito, sobre caminhar junto, isso toca muito em mim. Eu também acredito que não é por acaso tudo isso que estamos vivendo.
 
-Hoje eu parei pra pensar no quanto eu amo coisas simples com você, como sentar do teu lado e ouvir sobre o seu dia, suas conquistas, seus planos e ver esse seu sorriso lindo no meio disso tudo, como foi hoje com você sentada aqui no sofá de casa.
+Hoje eu parei pra pensar no quanto eu amo coisas simples com você...
 
-Você não tem noção do quanto eu amo o seu jeito.
-
-Você é muito importante pra mim, Bruna. Obrigado por ser essa mulher incrível e uma companheira tão especial.
+Você é muito importante pra mim, Bruna.
 
 Eu amo você ❤️`;
 
         function abrirCarta() {
-
             const envelope = document.querySelector(".envelope");
             envelope.classList.add("aberto");
 
@@ -212,7 +218,6 @@ Eu amo você ❤️`;
             setTimeout(() => {
                 texto.textContent = mensagem;
             }, 400);
-
         }
 
     </script>
