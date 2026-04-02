@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+}
+
+.hero {
+    height: 100vh;
+    background: url('img/bg.jpg') center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.btn {
+    padding: 12px 25px;
+    background: #ff4d6d;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ff1e4d;
+}
+
+.sobre {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.sobre h2 {
+    margin-bottom: 20px;
+}
+
+.cards {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 15px;
+    width: 250px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: #ff4d6d;
+}
+
+.galeria {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.fotos {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.fotos img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #000;
+}
+
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .fotos img {
+        width: 100%;
+    }
+}
+
+.card h3 {
+    position: relative;
+    padding-top: 28px;
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: red;
+    color: white;
+    font-size: 10px;
+    padding: 3px 7px;
+    border-radius: 6px;
+
+    font-weight: bold;
+}

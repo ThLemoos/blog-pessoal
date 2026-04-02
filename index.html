@@ -1,138 +1,161 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="img/fundo.jpg">
+    <title>Nosso Blog Pessoal ❤️</title>
+
+    <link rel="stylesheet" href="novo-style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap"
+        rel="stylesheet">
+    <script type="module" src="script/script-index.js"></script>
 </head>
 
 <body>
-    <!-- ***HEADER ANTIGO***
+
     <header class="hero">
-        <div class="overlay">
-            <h1>Bem-vinda ao Nosso Site</h1>
-            <p>Um lugar só nosso que pode servir como blog pessoal. Divirta-se, minha princesa estressadinha!</p>
-            <p>Vou escrever e armazenar algumas coisas nos tópicos abaixo, então, sempre que puder visite o NOSSO SITE!
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+            <h1>Nosso Blog Pessoal</h1>
+            <p>
+                Um pedaço da nossa história, feito com amor 💖<br>
+                Um projeto com ideia inicial de ser algo engraçado e surpreendente, mas que está contando
+                nossa história sem a gente perceber
             </p>
-            <p>Irei me declarar pra você? Irei te perturbar por aqui também? Não sei! Descubra!</p>
+
+            <a href="#momentos" class="btn">Ver nossa história</a>
         </div>
     </header>
-    -->
 
-    <header class="header">
-
-        <div class="header-conteudo">
-
-            <h1>Bem-vinda ao Nosso Site ❤️</h1>
-
-            <p>
-                Um lugar só nosso que pode servir como blog pessoal.
-                Divirta-se, minha princesa estressadinha!
-            </p>
-
-            <p>
-                Vou escrever e armazenar algumas coisas nos tópicos abaixo, então, sempre que puder
-                visite o NOSSO SITE!
-            </p>
-
-            <P>
-                Irei me declarar pra você? Irei te perturbar por aqui também? Não sei! Descubra!
-            </P>
-
-        </div>
-
-    </header>
-
-    <section class="boxes">
-        <a class="box" href="pagina1.html">
-            <img src="img/box1.png" alt="Imagem 1">
-            <h3>Pense bem Antes de Entrar aqui</h3>
-            <p>Aqui pode ter algo que te deixe muito feliz ou muito estressada.</p>
-            <p>A decisão é sua!!!</p>
-        </a>
-
-        <a class="box" href="pagina2.html">
-            <img src="img/box2.png" alt="Imagem 2">
-            <h3>Para quando estiver cansada da rotina</h3>
-            <p>Quando estiver cansada por conta do trabalho, faculdade e cursos, pare aqui um pouco.</p>
-        </a>
-
-        <a class="box" href="pagina3.html">
-            <img src="img/presente.png" alt="Imagem 3">
-            <h3>Um presente surpresa para você ❤️ </h3>
-            <p>Este conteúdo tem senha (achou que ia ser fácil?)</p>
-            <p>Pense bastante na dica de senha!</p>
-        </a>
-
-        <a class="box" href="pagina4.html">
-            <img src="img/mesNamoro.png" alt="Imagem 4">
-            <h3>Feliz um mês de namoro para nós, meu amor!</h3>
-            <p>
-                Uma pequena homenagem pra você!<br>
-                Te amo ❤️
-            </p>
-
-        </a>
-
-        <a class="box" href="pagina5.html">
-            <img src="img/doisMeses.png" alt="Imagem 4">
-            <h3>Algo simples, porém de coração</h3>
-            <p>Não poderia deixar passar em branco</p>
-        </a>
-
-        <a class="box" href="mesAniversario.html">
-            <img src="img/aniversario.png" alt="Imagem 4">
-            <h3>Um mês importante - Capítulo 1</h3>
-            <p>O mês que retrata a vida de uma pessoa importante</p>
-        </a>
-
-        <a class="box" href="mesAniversario2.html">
-            <img src="img/aniversario.png" alt="Imagem 4">
-            <h3>Um mês importante - Cápitulo 2</h3>
-            <p>O mês que retrata a vida de uma pessoa importante</p>
-        </a>
-
-        <a class="box" href="mesAniversario3.html">
-            <img src="img/aniversario.png" alt="Imagem 4">
-            <h3>Um mês importante - Cápitulo 3</h3>
-            <p>O mês que retrata a vida de uma pessoa importante</p>
-        </a>
-
-        <a class="box" href="mesAniversario4.html">
-            <img src="img/aniversario.png" alt="Imagem 4">
-            <h3>Um mês importante - Cápitulo 4</h3>
-            <p>O mês que retrata a vida de uma pessoa importante</p>
-        </a>
-
-        <a class="box box-aniversario bloqueado" id="boxAniversario" href="surpresaAniversario.html">
-
-            <div class="cadeado-box" id="cadeado">
-                🔒
-            </div>
-
-            <img src="img/aniversario.png">
-
-            <h3>Capítulo Especial</h3>
-            <p>Será liberado no dia do seu aniversário...</p>
-
-            <div class="contador-box" id="contadorAniversario"></div>
-
-        </a>
-
-        <a class="box" href="cartaSurpresa.html">
-            <img src="img/cartaBox.png" alt="Imagem 4">
-            <h3>Era isso que eu tinha pra te dizer ontem</h3>
-            <p>
-                Era pra ser um texto simples no WhatsApp, mas porque não eternizar sentimentos bons?<br>
-            </p>
-        </a>
-
+    <section class="sobre">
+        <h2>Sobre nós</h2>
+        <p>
+            Cada momento ao seu lado se torna inesquecível.
+            Esse espaço é só nosso, onde guardo cada lembrança,
+            cada sorriso e cada instante que vivemos juntos.
+        </p>
     </section>
 
-    <script src="script/liberacao.js"></script>
+    <section class="cards">
+        <h2>Conteúdos Iniciais</h2><br>
+
+        <div class="card-container">
+
+            <a href="#" class="card" onclick="irParaPagina('pagina1', 'pagina1.html')">
+                <h3>
+                    <span id="pagina1-badge" class="badge">NOVO</span>
+                    Pense bem antes de clicar
+                </h3>
+                <p>Você pode se alegrar ou se estressar</p>
+            </a>
+
+            <a href="#" class="card" onclick="irParaPagina('pagina2', 'pagina2.html')">
+                <h3>
+                    <span id="pagina2-badge" class="badge">NOVO</span>
+                    Para o cansaço da rotina
+                </h3>
+                <p>Pare aqui um pouco quando precisar</p>
+            </a>
+
+        </div>
+    </section>
+
+    <section class="cards">
+        <h2>Momentos especiais</h2><br>
+
+        <div class="card-container">
+
+            <a href="#" class="card" onclick="irParaPagina('pagina3', 'pagina3.html')">
+                <h3>
+                    <span id="pagina3-badge" class="badge">NOVO</span>
+                    Entrega da aliança ❤️
+                </h3>
+                <p>Uma surpresa feita pra você</p>
+            </a>
+
+            <a href="#" class="card" onclick="irParaPagina('pagina4', 'pagina4.html')">
+                <h3>
+                    <span id="pagina4-badge" class="badge">NOVO</span>
+                    Um mês de namoro ❤️
+                </h3>
+                <p>Uma pequena homenagem pra você</p>
+            </a>
+
+            <a href="#" class="card" onclick="irParaPagina('pagina5', 'pagina5.html')">
+                <h3>
+                    <span id="pagina5-badge" class="badge">NOVO</span>
+                    Dois meses de namoro ❤️
+                </h3>
+                <p>Algo simples, porém de coração</p>
+            </a>
+
+        </div>
+    </section>
+
+    <section class="cards">
+        <h2>Mês do seu aniversário 2026</h2><br>
+
+        <div class="card-container">
+
+            <a href="#" class="card" onclick="irParaPagina('mes1', 'mesAniversario.html')">
+                <h3>
+                    <span id="mes1-badge" class="badge">NOVO</span>
+                    Um mês importante EP 1
+                </h3>
+                <p>O mês que retrata a vida de uma pessoa importante</p>
+            </a>
+
+            <a href="#" class="card" onclick="irParaPagina('mes2', 'mesAniversario2.html')">
+                <h3>
+                    <span id="mes2-badge" class="badge">NOVO</span>
+                    Um mês importante EP 2
+                </h3>
+                <p>O mês que retrata a vida de uma pessoa importante</p>
+            </a>
+
+            <a href="#" class="card" onclick="irParaPagina('mes3', 'mesAniversario3.html')">
+                <h3>
+                    <span id="mes3-badge" class="badge">NOVO</span>
+                    Um mês importante EP 3
+                </h3>
+                <p>O mês que retrata a vida de uma pessoa importante</p>
+            </a>
+
+            <a href="#" class="card" onclick="irParaPagina('mes4', 'mesAniversario4.html')">
+                <h3>
+                    <span id="mes4-badge" class="badge">NOVO</span>
+                    Um mês importante EP 4
+                </h3>
+                <p>O mês que retrata a vida de uma pessoa importante</p>
+            </a>
+
+            <a href="#" class="card" onclick="irParaPagina('surpresaFinal', 'surpresaAniversario.html')">
+                <h3>
+                    <span id="surpresaFinal-badge" class="badge">NOVO</span>
+                    Capítulo Especial
+                </h3>
+                <p>Caixa com seu "presente" surpresa</p>
+            </a>
+
+        </div>
+    </section>
+
+    <section class="galeria">
+        <h2>Alguns de Nossos Momentos</h2><br>
+
+        <div class="fotos">
+            <img src="img/momentos.jpg" alt="">
+            <img src="img/thiagoBruna.jpg" alt="">
+            <img src="img/momentos2.jpg" alt="">
+        </div>
+    </section>
+
+    <footer>
+        <p>Feito com ❤️ por você</p>
+    </footer>
 
 </body>
 
