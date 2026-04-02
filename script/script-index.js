@@ -23,7 +23,8 @@ const itens = [
     "mes2",
     "mes3",
     "mes4",
-    "surpresaFinal"
+    "surpresaFinal",
+    "cartaSurpresa"
 ];
 
 async function marcarVisto(id) {
