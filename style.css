@@ -1,12 +1,5 @@
-/* ============================================================
-   BLOG ROMÂNTICO — DARK LUXURY THEME
-   Para todas as páginas internas
-   Fontes: Cormorant Garamond (títulos) + DM Sans (corpo)
-   ============================================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-/* ========== RESET & BASE ========== */
 *,
 *::before,
 *::after {
@@ -54,12 +47,10 @@ body {
     min-height: 100vh;
 }
 
-/* ========== CURSOR PERSONALIZADO ========== */
 body {
     cursor: default;
 }
 
-/* ========== HEADER — padrão das páginas ========== */
 .header-pagina {
     position: relative;
     height: 65vh;
@@ -71,7 +62,6 @@ body {
     overflow: hidden;
 }
 
-/* versão alianças */
 .header-pagina-aliancas {
     position: relative;
     height: 65vh;
@@ -83,7 +73,6 @@ body {
     overflow: hidden;
 }
 
-/* overlay com gradiente profundo */
 .header-overlay,
 .header-overlay-aliancas {
     position: absolute;
@@ -95,7 +84,6 @@ body {
     z-index: 1;
 }
 
-/* vinheta nas bordas */
 .header-pagina::after,
 .header-pagina-aliancas::after {
     content: '';
@@ -106,7 +94,6 @@ body {
     pointer-events: none;
 }
 
-/* caixa central do header */
 .header-conteudo-novo,
 .header-conteudo-novo-aliancas {
     position: relative;
@@ -137,7 +124,6 @@ body {
     }
 }
 
-/* linha decorativa dourada acima do título */
 .header-conteudo-novo::before,
 .header-conteudo-novo-aliancas::before {
     content: '✦';
@@ -171,7 +157,6 @@ body {
     font-weight: 300;
 }
 
-/* ========== BOTÃO PADRÃO ========== */
 .btn-padrao {
     display: inline-flex;
     align-items: center;
@@ -205,14 +190,12 @@ body {
     transform: scale(0.97);
 }
 
-/* ========== CONTEÚDO PRINCIPAL ========== */
 .conteudo2 {
     padding: 56px 20px 80px;
     max-width: 960px;
     margin: 0 auto;
 }
 
-/* ========== CAIXA DE CONTEÚDO (conteudo-box) ========== */
 .conteudo-box {
     position: relative;
     background: var(--bg-card);
@@ -232,7 +215,6 @@ body {
     box-shadow: var(--shadow), var(--shadow-rose), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-/* linha decorativa no topo esquerdo de cada box */
 .conteudo-box::before {
     content: '';
     position: absolute;
@@ -257,7 +239,7 @@ body {
     }
 }
 
-/* delay escalonado nas boxes */
+
 .conteudo-box:nth-child(1) {
     animation-delay: 0.1s;
 }
@@ -300,7 +282,7 @@ body {
     font-size: 0.96rem;
 }
 
-/* destaque escuro especial */
+
 .conteudo-box.destaque {
     background: linear-gradient(135deg, rgba(30, 5, 12, 0.95), rgba(18, 5, 22, 0.95));
     border-color: rgba(232, 85, 122, 0.28);
@@ -312,7 +294,6 @@ body {
     text-align: center;
 }
 
-/* ========== PARÁGRAFO JUSTIFICADO ========== */
 .paragrafo1 {
     text-align: justify;
     text-justify: inter-word;
@@ -321,7 +302,6 @@ body {
     font-size: 0.97rem;
 }
 
-/* ========== IMAGENS ========== */
 .oi {
     width: 100%;
     max-width: 480px;
@@ -360,7 +340,6 @@ body {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-/* ========== FRASE / CITAÇÃO ========== */
 .frase {
     position: relative;
     width: 100%;
@@ -384,7 +363,6 @@ body {
     font-size: 1.05rem;
 }
 
-/* ========== CAIXAS DE FRASES MOTIVACIONAIS ========== */
 .caixas-frases {
     display: flex;
     flex-direction: column;
@@ -392,7 +370,6 @@ body {
     margin-top: 24px;
 }
 
-/* ========== CONTEÚDO MÚSICA ========== */
 .conteudo-musica {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -430,7 +407,6 @@ hr {
     margin: 24px 0;
 }
 
-/* ========== CHECK-IN ========== */
 .checkin {
     max-width: 380px;
     margin: 32px auto;
@@ -482,7 +458,6 @@ hr {
     color: var(--text-muted);
 }
 
-/* ========== CAIXA DE CÓDIGO ========== */
 .caixa-codigo {
     display: flex;
     flex-direction: column;
@@ -545,7 +520,6 @@ hr {
     font-size: 13px;
 }
 
-/* ========== GALERIA ========== */
 .galeria {
     margin-top: 36px;
     text-align: center;
@@ -578,7 +552,6 @@ hr {
     box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55), var(--shadow-rose);
 }
 
-/* ========== CONVITE ========== */
 .convite {
     margin-top: 32px;
     padding: 28px;
@@ -634,7 +607,6 @@ hr {
     box-shadow: 0 10px 26px var(--rose-glow);
 }
 
-/* ========== MISSION / PISTAS ========== */
 .conteudo-box button {
     background: linear-gradient(135deg, var(--rose), #c9184a);
     color: white;
@@ -678,7 +650,6 @@ hr {
     }
 }
 
-/* ========== MISSÃO / CHECKIN EXTRAS ========== */
 #missao h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.6rem;
@@ -695,7 +666,6 @@ hr {
     margin-top: 20px;
 }
 
-/* ========== TEXTO SUSPENSE / BTN REVELAR ========== */
 .texto-suspense {
     margin-top: 22px;
     font-size: 1rem;
@@ -736,7 +706,6 @@ hr {
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* ========== BTN VOLTAR ========== */
 .btn-voltar {
     display: inline-flex;
     align-items: center;
@@ -760,12 +729,10 @@ hr {
     transform: translateY(-2px);
 }
 
-/* ========== CENTRALIZAR ========== */
 .centralizar {
     text-align: center;
 }
 
-/* ========== HEADER PÁGINAS COM DESTAQUE GOLD (missão março) ========== */
 .cabecalho {
     position: relative;
     padding: 50px 20px 40px;
@@ -814,7 +781,6 @@ hr {
     margin-bottom: 4px;
 }
 
-/* ========== BOX LOCK / DESBLOQUEIO ========== */
 .box-aniversario {
     position: relative;
     overflow: hidden;
@@ -855,7 +821,6 @@ hr {
     animation: none;
 }
 
-/* ========== FOOTER ========== */
 footer {
     text-align: center;
     padding: 36px 20px;
@@ -874,7 +839,6 @@ footer .footer-amor {
     font-size: 0.82rem;
 }
 
-/* ========== RESPONSIVO ========== */
 @media (max-width: 768px) {
 
     .header-pagina,
