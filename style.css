@@ -157,6 +157,14 @@ body {
     font-weight: 300;
 }
 
+.header-convite {
+    background: url("img/fundoConviteJantar.png") center/cover no-repeat;
+}
+
+.header-boxJantar1 {
+    background: url("img/fundoBoxJantar1.png") center/cover no-repeat;
+}
+
 .btn-padrao {
     display: inline-flex;
     align-items: center;
@@ -960,4 +968,164 @@ input:focus {
 
     box-shadow: 0 0 0 4px rgba(255, 77, 136, 0.2);
 
+}
+
+.pergunta-jantar {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.pergunta-jantar h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--rose-light);
+    margin-bottom: 20px;
+}
+
+.botoes-resposta {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn-sim,
+.btn-nao {
+    padding: 14px 28px;
+    border-radius: 50px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-sim {
+    background: linear-gradient(135deg, #25D366, #1ebe5b);
+    color: white;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-sim:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+}
+
+.btn-nao {
+    background: linear-gradient(135deg, #ff4d4d, #c9184a);
+    color: white;
+    box-shadow: 0 6px 20px rgba(255, 77, 77, 0.3);
+}
+
+.btn-nao:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(255, 77, 77, 0.45);
+}
+
+.area-box-jantar {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.titulo-surpresas {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--rose-light);
+    margin-bottom: 14px;
+}
+
+.texto-desbloqueio {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+}
+
+#contador-desbloqueio {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.grid-box-jantar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.box-jantar {
+    position: relative;
+    height: 220px;
+    border-radius: 22px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: end;
+    padding: 24px;
+    background: url("img/fundoSurpresaJantar.jpg") center/cover no-repeat;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: all 0.35s ease;
+}
+
+.box-jantar:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow), var(--shadow-rose);
+}
+
+.overlay-box {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, 0.15) 0%,
+            rgba(0, 0, 0, 0.75) 100%);
+}
+
+.conteudo-box-jantar {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: left;
+}
+
+.conteudo-box-jantar h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+}
+
+.conteudo-box-jantar p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.cadeado {
+    font-size: 1.6rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.box-jantar.bloqueado {
+    pointer-events: none;
+    filter: grayscale(85%);
+    opacity: 0.45;
+}
+
+.box-jantar.desbloqueado {
+    pointer-events: auto;
+    filter: none;
+    opacity: 1;
+}
+
+.contador-interno {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+.contador-interno span {
+    display: block;
+    margin-top: 6px;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 1rem;
 }

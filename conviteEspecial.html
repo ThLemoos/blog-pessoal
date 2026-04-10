@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/fundo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header-pagina header-convite">
+
+        <div class="header-overlay"></div>
+
+        <div class="header-conteudo-novo">
+            <h1>ACEITA JANTAR COMIGO ?</h1>
+            <p>28/11/2026</p>
+
+            <a href="index.html" class="btn-padrao">
+                ⬅ Início
+            </a>
+        </div>
+
+    </header>
+
+    <main class="conteudo2">
+
+        <section class="conteudo-box">
+            <p>
+                Um ano ao seu lado é algo que merece ser celebrado da forma certa.<br>
+                A gente sabe que não foi tudo perfeito… tivemos que aprender, ceder e crescer juntos.<br>
+                Mas, olhando pra tudo o que vivemos até aqui, eu tenho cada vez mais certeza de uma coisa:
+                isso é só o começo de algo muito maior.
+            </p>
+
+            <p>
+                E como já virou tradição… eu preparei algo especial pra hoje.<br>
+                Não é só um jantar, não é só mais um momento bonito, é um dia que foi pensado pra ficar marcado na
+                nossa história.<br>
+                Porque tem coisas que a gente não vive todo dia… só quando realmente vale a pena.
+            </p>
+            <p style="margin-top: 20px; font-style: italic;">
+                Confia em mim e esteja pronta... hoje é um daqueles dias que eu chamo de especial.
+            </p>
+        </section>
+
+        <section class="pergunta-jantar">
+            <h2>Você aceita jantar comigo? ❤️</h2>
+
+            <div class="botoes-resposta">
+                <button class="btn-sim" onclick="aceitou()">Sim 💚</button>
+                <button class="btn-nao" onclick="recusou()">Não 😢</button>
+            </div>
+
+            <p id="mensagem-aceite" style="display: none; margin-top: 20px; font-style: italic;">
+                Sabia que você iria aceitar! ❤️<br>
+                Carregando...
+            </p>
+        </section>
+
+        <section class="conteudo-box" id="jantar" style="display: none;">
+
+            <img class="oi" src="img/conviteOutback.jpg">
+
+            <div class="frase">
+                <adress>📍 Endereço: Av. Abílio Augusto Távora, 1111 - Luz, Nova Iguaçu - RJ</adress>
+            </div>
+
+            <div class="frase">
+                <p style="text-align: center;">🕜 Horário: 19h30 sem atrasos!</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="https://wa.me/5521975930204?text=Confirmo nosso jantar!" class="btn-padrao">
+                    Confirmar no WhatsApp 💌
+                </a>
+            </div><br><br>
+
+            <div class="grid-box-jantar">
+
+                <a id="box1" href="boxJantar1.html" class="box-jantar bloqueado">
+                    <div class="overlay-box"></div>
+                    <div class="conteudo-box-jantar">
+                        <span class="cadeado">🔒</span>
+                        <h3>Primeira Surpresa</h3>
+                        <p class="contador-interno">
+                            Primeiro momento desbloqueia em:
+                            <span id="contador1"></span>
+                        </p>
+                    </div>
+                </a>
+
+                <a id="box2" href="boxJantar2.html" class="box-jantar bloqueado">
+                    <div class="overlay-box"></div>
+                    <div class="conteudo-box-jantar">
+                        <span class="cadeado">🔒</span>
+                        <h3>Segunda Surpresa</h3>
+                        <p class="contador-interno">
+                            Segundo momento desbloqueia em:
+                            <span id="contador2"></span>
+                        </p>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function aceitou() {
+            const mensagem = document.getElementById("mensagem-aceite");
+            const jantar = document.getElementById("jantar");
+
+            mensagem.style.display = "block";
+
+            setTimeout(() => {
+                jantar.style.display = "block";
+
+                mensagem.style.display = "none";
+
+                jantar.scrollIntoView({ behavior: "smooth" });
+            }, 3000);
+        }
+
+        function recusou() {
+            window.open("https://wa.me/5521975930204?text=Não vou aceitar o jantar!", "_blank");
+        }
+
+    function formatarTempo(diferenca) {
+        const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+        return `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    function atualizarBox(idBox, idContador, dataDesbloqueio, textoLiberado) {
+        const box = document.getElementById(idBox);
+        const contador = document.getElementById(idContador);
+
+        const agora = new Date();
+        const diferenca = dataDesbloqueio - agora;
+
+        if (diferenca <= 0) {
+            contador.innerHTML = textoLiberado;
+
+            box.classList.remove("bloqueado");
+            box.classList.add("desbloqueado");
+
+            box.querySelector(".cadeado").innerHTML = "🔓";
+            return;
+        }
+
+        contador.innerHTML = formatarTempo(diferenca);
+    }
+
+    function atualizarContadores() {
+        const horario1 = new Date("2026-11-28T19:30:00");
+        const horario2 = new Date("2026-11-28T21:30:00");
+
+        atualizarBox(
+            "box1",
+            "contador1",
+            horario1,
+            "DESBLOQUEADO ❤️"
+        );
+
+        atualizarBox(
+            "box2",
+            "contador2",
+            horario2,
+            "DESBLOQUEADO ✨"
+        );
+    }
+
+    setInterval(atualizarContadores, 1000);
+    atualizarContadores();
+
+    </script>
+
+</body>
+
+</html>
