@@ -5,210 +5,341 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosso Blog Pessoal ❤️</title>
-
-    <link rel="stylesheet" href="novo-style-v2.css">
+    <link rel="stylesheet" href="novo-style.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400&display=swap"
         rel="stylesheet">
     <script type="module" src="script/script-index-v2.js"></script>
 </head>
 
 <body>
 
+    <!-- ══ HERO ══════════════════════════════════════════════ -->
     <header class="hero">
-        <div class="overlay"></div>
+
+        <div class="hero-bg-base"></div>
+        <div class="hero-vignette"></div>
+        <canvas id="hero-canvas"></canvas>
 
         <div class="hero-content">
-            <h1>Nosso Blog Pessoal</h1>
-            <p>
-                Um pedaço da nossa história, feito com amor 💖<br>
-                Um projeto com ideia inicial de ser algo engraçado e surpreendente, mas que está contando
-                nossa história sem a gente perceber
+
+            <p class="hero-eyebrow">Juntos desde 28 de novembro de 2025</p>
+
+            <h1 class="hero-title">
+                Nosso<br>
+                <em>Blog Pessoal</em>
+            </h1>
+
+            <div class="hero-divider">
+                <span class="divider-line"></span>
+                <span class="divider-heart">♡</span>
+                <span class="divider-line"></span>
+            </div>
+
+            <p class="hero-subtitle">
+                Um pedaço da nossa história, feito com amor.<br>
+                Começou como surpresa e virou a memória mais bonita que temos.
             </p>
 
-            <div class="contador-wrapper">
-                <div class="contador-item">
-                    <span class="numero" id="contador-dias">0</span>
-                    <span class="label">dias</span>
+            <div class="contador" id="contador">
+                <div class="cnt-item">
+                    <span class="cnt-num" id="contador-dias">0</span>
+                    <span class="cnt-label">dias</span>
                 </div>
-                <span class="contador-divider">:</span>
-                <div class="contador-item">
-                    <span class="numero" id="contador-horas">00</span>
-                    <span class="label">horas</span>
+                <div class="cnt-sep">:</div>
+                <div class="cnt-item">
+                    <span class="cnt-num" id="contador-horas">00</span>
+                    <span class="cnt-label">horas</span>
                 </div>
-                <span class="contador-divider">:</span>
-                <div class="contador-item">
-                    <span class="numero" id="contador-minutos">00</span>
-                    <span class="label">min</span>
+                <div class="cnt-sep">:</div>
+                <div class="cnt-item">
+                    <span class="cnt-num" id="contador-minutos">00</span>
+                    <span class="cnt-label">min</span>
                 </div>
-                <span class="contador-divider">:</span>
-                <div class="contador-item">
-                    <span class="numero" id="contador-segundos">00</span>
-                    <span class="label">seg</span>
+                <div class="cnt-sep">:</div>
+                <div class="cnt-item">
+                    <span class="cnt-num" id="contador-segundos">00</span>
+                    <span class="cnt-label">seg</span>
                 </div>
             </div>
 
-            <br>
-            <a href="#momentos" class="btn">Ver nossa história</a>
+            <a href="#momentos" class="btn-hero">
+                <span>Ver nossa história</span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M7 1L7 13M7 13L1 7M7 13L13 7" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+
         </div>
+
+        <div class="hero-scroll-hint">
+            <span></span>
+        </div>
+
     </header>
 
+    <!-- ══ SOBRE ═════════════════════════════════════════════ -->
     <section class="sobre fade-in" id="momentos">
-        <h2>Sobre nós</h2>
-        <p>
-            Cada momento ao seu lado se torna inesquecível.
-            Esse espaço é só nosso, onde guardo cada lembrança,
-            cada sorriso e cada instante que vivemos juntos.
-        </p>
+        <div class="sobre-inner">
+            <p class="section-tag">sobre nós</p>
+            <h2>Cada instante, guardado aqui</h2>
+            <p>
+                Cada momento ao seu lado se torna inesquecível.
+                Esse espaço é só nosso — onde guardo cada lembrança,
+                cada sorriso e cada instante que vivemos juntos.
+            </p>
+        </div>
     </section>
 
-    <section class="cards fade-in">
-        <h2 class="titulo-romantico">Coisas que deixei pra você</h2><br>
+    <!-- ══ COISAS QUE DEIXEI ══════════════════════════════════ -->
+    <section class="secao-cards fade-in">
+        <div class="secao-header">
+            <p class="section-tag">para você</p>
+            <h2 class="titulo-romantico">Coisas que deixei pra você</h2>
+        </div>
 
-        <div class="card-container">
+        <div class="card-grid">
 
             <a href="pagina1.html" class="card" onclick="irParaPagina('pagina1', 'pagina1.html')">
-                <h3>
-                    <span id="pagina1-badge" class="badge">NOVO</span>
-                    Pense bem antes de clicar
-                </h3>
+                <span id="pagina1-badge" class="badge">NOVO</span>
+                <h3>Pense bem antes de clicar</h3>
                 <p>Você pode se alegrar ou se estressar</p>
+                <span class="card-arrow">→</span>
             </a>
 
             <a href="pagina2.html" class="card" onclick="irParaPagina('pagina2', 'pagina2.html')">
-                <h3>
-                    <span id="pagina2-badge" class="badge">NOVO</span>
-                    Para o cansaço da rotina
-                </h3>
+                <span id="pagina2-badge" class="badge">NOVO</span>
+                <h3>Para o cansaço da rotina</h3>
                 <p>Pare aqui um pouco quando precisar</p>
+                <span class="card-arrow">→</span>
             </a>
 
             <a href="cartaSurpresa.html" class="card" onclick="irParaPagina('cartaSurpresa', 'cartaSurpresa.html')">
-                <h3>
-                    <span id="cartaSurpresa-badge" class="badge">NOVO</span>
-                    Carta surpresa ❤️
-                </h3>
-                <p>O texto que eu tinha preparado Domingo e você foi dormir</p>
+                <span id="cartaSurpresa-badge" class="badge">NOVO</span>
+                <h3>Carta surpresa ❤️</h3>
+                <p>O texto que eu tinha preparado domingo</p>
+                <span class="card-arrow">→</span>
             </a>
 
         </div>
     </section>
 
-    <section class="cards fade-in">
-        <h2 class="titulo-romantico">Momentos especiais</h2><br>
+    <!-- ══ MOMENTOS ESPECIAIS ════════════════════════════════ -->
+    <section class="secao-cards fade-in">
+        <div class="secao-header">
+            <p class="section-tag">nós dois</p>
+            <h2 class="titulo-romantico">Momentos especiais</h2>
+        </div>
 
-        <div class="card-container">
+        <div class="card-grid">
 
             <a href="pagina3.html" class="card" onclick="irParaPagina('pagina3', 'pagina3.html')">
-                <h3>
-                    <span id="pagina3-badge" class="badge">NOVO</span>
-                    Entrega da aliança ❤️
-                </h3>
+                <span id="pagina3-badge" class="badge">NOVO</span>
+                <h3>Entrega da aliança ❤️</h3>
                 <p>Uma surpresa feita pra você</p>
+                <span class="card-arrow">→</span>
             </a>
 
             <a href="pagina4.html" class="card" onclick="irParaPagina('pagina4', 'pagina4.html')">
-                <h3>
-                    <span id="pagina4-badge" class="badge">NOVO</span>
-                    Um mês de namoro ❤️
-                </h3>
+                <span id="pagina4-badge" class="badge">NOVO</span>
+                <h3>Um mês de namoro ❤️</h3>
                 <p>Uma pequena homenagem pra você</p>
+                <span class="card-arrow">→</span>
             </a>
 
             <a href="pagina5.html" class="card" onclick="irParaPagina('pagina5', 'pagina5.html')">
-                <h3>
-                    <span id="pagina5-badge" class="badge">NOVO</span>
-                    Dois meses de namoro ❤️
-                </h3>
+                <span id="pagina5-badge" class="badge">NOVO</span>
+                <h3>Dois meses de namoro ❤️</h3>
                 <p>Algo simples, porém de coração</p>
+                <span class="card-arrow">→</span>
             </a>
 
         </div>
     </section>
 
-    <section class="cards fade-in">
-        <h2 class="titulo-romantico">Mês do seu aniversário 2026</h2><br>
+    <!-- ══ MÊS DO ANIVERSÁRIO ════════════════════════════════ -->
+    <section class="secao-cards fade-in">
+        <div class="secao-header">
+            <p class="section-tag">especial 2026</p>
+            <h2 class="titulo-romantico">Mês do seu aniversário</h2>
+        </div>
 
-        <div class="card-container">
+        <div class="card-grid">
 
             <a href="mesAniversario.html" class="card" onclick="irParaPagina('mes1', 'mesAniversario.html')">
-                <h3>
-                    <span id="mes1-badge" class="badge">NOVO</span>
-                    Um mês importante EP 1
-                </h3>
+                <span id="mes1-badge" class="badge">NOVO</span>
+                <h3>Um mês importante <em>EP 1</em></h3>
                 <p>O mês que retrata a vida de uma pessoa importante</p>
+                <span class="card-arrow">→</span>
             </a>
 
             <a href="mesAniversario2.html" class="card" onclick="irParaPagina('mes2', 'mesAniversario2.html')">
-                <h3>
-                    <span id="mes2-badge" class="badge">NOVO</span>
-                    Um mês importante EP 2
-                </h3>
+                <span id="mes2-badge" class="badge">NOVO</span>
+                <h3>Um mês importante <em>EP 2</em></h3>
                 <p>O mês que retrata a vida de uma pessoa importante</p>
+                <span class="card-arrow">→</span>
             </a>
 
             <a href="mesAniversario3.html" class="card" onclick="irParaPagina('mes3', 'mesAniversario3.html')">
-                <h3>
-                    <span id="mes3-badge" class="badge">NOVO</span>
-                    Um mês importante EP 3
-                </h3>
+                <span id="mes3-badge" class="badge">NOVO</span>
+                <h3>Um mês importante <em>EP 3</em></h3>
                 <p>O mês que retrata a vida de uma pessoa importante</p>
+                <span class="card-arrow">→</span>
             </a>
 
             <a href="mesAniversario4.html" class="card" onclick="irParaPagina('mes4', 'mesAniversario4.html')">
-                <h3>
-                    <span id="mes4-badge" class="badge">NOVO</span>
-                    Um mês importante EP 4
-                </h3>
+                <span id="mes4-badge" class="badge">NOVO</span>
+                <h3>Um mês importante <em>EP 4</em></h3>
                 <p>O mês que retrata a vida de uma pessoa importante</p>
+                <span class="card-arrow">→</span>
             </a>
 
-            <a href="surpresaAniversario.html" class="card"
+            <a href="surpresaAniversario.html" class="card card-destaque"
                 onclick="irParaPagina('surpresaFinal', 'surpresaAniversario.html')">
-                <h3>
-                    <span id="surpresaFinal-badge" class="badge">NOVO</span>
-                    Capítulo Especial
-                </h3>
+                <span id="surpresaFinal-badge" class="badge">NOVO</span>
+                <h3>Capítulo Especial ✦</h3>
                 <p>Caixa com seu "presente" surpresa</p>
+                <span class="card-arrow">→</span>
             </a>
 
         </div>
     </section>
 
-    <!--<section class="cards fade-in">
-        <h2 class="titulo-romantico">Convite Muito Especial</h2><br>
-
-        <div class="card-container">
-
-            <a href="conviteEspecial.html" class="card" onclick="irParaPagina('mes1', 'mesAniversario.html')">
-                <h3>
-                    <span id="mes1-badge" class="badge">NOVO</span>
-                    Um convite especial pra você
-                </h3>
-                <p>Um dia importante pra gente que merece algo mais do que especial</p>
-            </a>
-        </div>
-    </section>-->
-
+    <!-- ══ GALERIA ════════════════════════════════════════════ -->
     <section class="galeria fade-in">
-        <h2>Alguns de Nossos Momentos</h2>
+        <div class="secao-header">
+            <p class="section-tag">memórias</p>
+            <h2>Alguns de nossos momentos</h2>
+        </div>
 
-        <div class="fotos">
-            <img src="img/momentos.jpg" alt="Nossos momentos juntos">
-            <img src="img/thiagoBruna.jpg" alt="Eu e você">
-            <img src="img/momentos2.jpg" alt="Mais momentos juntos">
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                <img src="img/momentos.jpg" alt="Nossos momentos juntos">
+            </div>
+            <div class="galeria-item galeria-item--tall">
+                <img src="img/thiagoBruna.jpg" alt="Eu e você">
+            </div>
+            <div class="galeria-item">
+                <img src="img/momentos2.jpg" alt="Mais momentos juntos">
+            </div>
         </div>
     </section>
 
+    <!-- ══ LIGHTBOX ═══════════════════════════════════════════ -->
     <div id="lightbox" class="lightbox">
         <span id="lightbox-fechar" class="lightbox-fechar">&times;</span>
         <img id="lightbox-img" src="" alt="Foto ampliada">
     </div>
 
-    <footer>
-        <p>Feito por Thiago Lemos</p>
+    <!-- ══ FOOTER ════════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="footer-ornamento">✦</div>
+        <p class="footer-feito">Feito por Thiago Lemos</p>
         <p class="footer-amor">Juntos desde 28 de novembro de 2025 ❤️</p>
     </footer>
+
+    <!-- ══ SCRIPT ════════════════════════════════════════════ -->
+    <script>
+        /* ---------- CONTADOR ---------- */
+        function atualizarContador() {
+            const inicio = new Date('2025-11-28T00:00:00');
+            const agora = new Date();
+            const diff = agora - inicio;
+            const totalSeg = Math.floor(diff / 1000);
+            const seg = totalSeg % 60;
+            const min = Math.floor(totalSeg / 60) % 60;
+            const horas = Math.floor(totalSeg / 3600) % 24;
+            const dias = Math.floor(totalSeg / 86400);
+            document.getElementById('contador-dias').textContent = dias;
+            document.getElementById('contador-horas').textContent = String(horas).padStart(2, '0');
+            document.getElementById('contador-minutos').textContent = String(min).padStart(2, '0');
+            document.getElementById('contador-segundos').textContent = String(seg).padStart(2, '0');
+        }
+        atualizarContador();
+        setInterval(atualizarContador, 1000);
+
+        /* ---------- CANVAS PARTÍCULAS ---------- */
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        function createParticle() {
+            return {
+                x: Math.random() * canvas.width,
+                y: canvas.height + 10,
+                size: Math.random() * 1.8 + 0.5,
+                speedY: Math.random() * 0.6 + 0.2,
+                speedX: (Math.random() - 0.5) * 0.3,
+                opacity: Math.random() * 0.5 + 0.1,
+                life: 0,
+                maxLife: Math.random() * 400 + 200
+            };
+        }
+
+        for (let i = 0; i < 60; i++) {
+            const p = createParticle();
+            p.y = Math.random() * canvas.height;
+            p.life = Math.random() * p.maxLife;
+            particles.push(p);
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((p, i) => {
+                p.life++;
+                p.y -= p.speedY;
+                p.x += p.speedX;
+                const fade = p.life < 40 ? p.life / 40 : p.life > p.maxLife - 40 ? (p.maxLife - p.life) / 40 : 1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(210, 160, 140, ${p.opacity * fade})`;
+                ctx.fill();
+                if (p.life >= p.maxLife) particles[i] = createParticle();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        /* ---------- SCROLL REVEAL ---------- */
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        fadeEls.forEach(el => observer.observe(el));
+
+        /* ---------- LIGHTBOX ---------- */
+        document.querySelectorAll('.galeria-item img').forEach(img => {
+            img.addEventListener('click', () => {
+                document.getElementById('lightbox-img').src = img.src;
+                document.getElementById('lightbox').classList.add('ativo');
+            });
+        });
+        document.getElementById('lightbox-fechar').addEventListener('click', () => {
+            document.getElementById('lightbox').classList.remove('ativo');
+        });
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) e.currentTarget.classList.remove('ativo');
+        });
+
+        /* ---------- SMOOTH SCROLL ---------- */
+        document.querySelector('.btn-hero').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('momentos').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 
 </body>
 
