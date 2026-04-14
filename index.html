@@ -14,7 +14,6 @@
 
 <body>
 
-    <!-- ══ HERO ══════════════════════════════════════════════ -->
     <header class="hero">
 
         <div class="hero-bg-base"></div>
@@ -79,7 +78,6 @@
 
     </header>
 
-    <!-- ══ SOBRE ═════════════════════════════════════════════ -->
     <section class="sobre fade-in" id="momentos">
         <div class="sobre-inner">
             <p class="section-tag">sobre nós</p>
@@ -92,7 +90,6 @@
         </div>
     </section>
 
-    <!-- ══ COISAS QUE DEIXEI ══════════════════════════════════ -->
     <section class="secao-cards fade-in">
         <div class="secao-header">
             <p class="section-tag">para você</p>
@@ -125,7 +122,6 @@
         </div>
     </section>
 
-    <!-- ══ MOMENTOS ESPECIAIS ════════════════════════════════ -->
     <section class="secao-cards fade-in">
         <div class="secao-header">
             <p class="section-tag">nós dois</p>
@@ -158,7 +154,6 @@
         </div>
     </section>
 
-    <!-- ══ MÊS DO ANIVERSÁRIO ════════════════════════════════ -->
     <section class="secao-cards fade-in">
         <div class="secao-header">
             <p class="section-tag">especial 2026</p>
@@ -206,7 +201,6 @@
         </div>
     </section>
 
-    <!-- ══ GALERIA ════════════════════════════════════════════ -->
     <section class="galeria fade-in">
         <div class="secao-header">
             <p class="section-tag">memórias</p>
@@ -217,7 +211,7 @@
             <div class="galeria-item">
                 <img src="img/momentos.jpg" alt="Nossos momentos juntos">
             </div>
-            <div class="galeria-item galeria-item--tall">
+            <div class="galeria-item">
                 <img src="img/thiagoBruna.jpg" alt="Eu e você">
             </div>
             <div class="galeria-item">
@@ -226,22 +220,19 @@
         </div>
     </section>
 
-    <!-- ══ LIGHTBOX ═══════════════════════════════════════════ -->
     <div id="lightbox" class="lightbox">
         <span id="lightbox-fechar" class="lightbox-fechar">&times;</span>
         <img id="lightbox-img" src="" alt="Foto ampliada">
     </div>
 
-    <!-- ══ FOOTER ════════════════════════════════════════════ -->
     <footer class="footer">
         <div class="footer-ornamento">✦</div>
         <p class="footer-feito">Feito por Thiago Lemos</p>
         <p class="footer-amor">Juntos desde 28 de novembro de 2025 ❤️</p>
     </footer>
 
-    <!-- ══ SCRIPT ════════════════════════════════════════════ -->
     <script>
-        /* ---------- CONTADOR ---------- */
+
         function atualizarContador() {
             const inicio = new Date('2025-11-28T00:00:00');
             const agora = new Date();
@@ -259,7 +250,6 @@
         atualizarContador();
         setInterval(atualizarContador, 1000);
 
-        /* ---------- CANVAS PARTÍCULAS ---------- */
         const canvas = document.getElementById('hero-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -308,7 +298,6 @@
         }
         animateParticles();
 
-        /* ---------- SCROLL REVEAL ---------- */
         const fadeEls = document.querySelectorAll('.fade-in');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => {
@@ -320,7 +309,6 @@
         }, { threshold: 0.08 });
         fadeEls.forEach(el => observer.observe(el));
 
-        /* ---------- LIGHTBOX ---------- */
         document.querySelectorAll('.galeria-item img').forEach(img => {
             img.addEventListener('click', () => {
                 document.getElementById('lightbox-img').src = img.src;
@@ -334,7 +322,6 @@
             if (e.target === e.currentTarget) e.currentTarget.classList.remove('ativo');
         });
 
-        /* ---------- SMOOTH SCROLL ---------- */
         document.querySelector('.btn-hero').addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('momentos').scrollIntoView({ behavior: 'smooth' });
