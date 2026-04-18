@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Março — Capítulo 3</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="icon" type="image/png" href="../img/fundo.jpg">
+
+    <style>
+        .btn-musica {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 36px;
+            background: transparent;
+            border: 1px solid var(--c-rose-dim);
+            border-radius: 3px;
+            font-family: var(--font-sans);
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--c-rose);
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-musica:hover {
+            background: var(--c-rose-dark);
+            color: var(--c-text);
+        }
+
+        .btn-musica.tocando {
+            border-color: var(--c-rose);
+            color: var(--c-rose-light);
+            animation: pulse-border 2s ease infinite;
+        }
+
+        @keyframes pulse-border {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(201, 133, 106, 0);
+            }
+
+            50% {
+                box-shadow: 0 0 0 7px rgba(201, 133, 106, 0.12);
+            }
+        }
+
+        .contador-aniversario {
+            font-size: 13px;
+            color: var(--c-text3);
+            letter-spacing: 1px;
+            margin: 0.8rem 0 1.5rem;
+        }
+
+        .contador-aniversario strong {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: var(--c-rose);
+            font-style: italic;
+        }
+
+        .cartas-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .envelope {
+            background: var(--c-bg2);
+            border: 1px solid var(--c-border);
+            border-radius: 3px;
+            overflow: hidden;
+            transition: border-color 0.35s;
+        }
+
+        .envelope.aberto {
+            border-color: var(--c-border2);
+        }
+
+        .tampa {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--c-border2), transparent);
+            transition: background 0.5s;
+        }
+
+        .envelope.aberto .tampa {
+            background: linear-gradient(90deg, transparent, var(--c-rose-dim), transparent);
+        }
+
+        .btn-abrir {
+            display: block;
+            width: 100%;
+            padding: 1.3rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--c-border);
+            font-family: var(--font-sans);
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--c-rose);
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.25s, color 0.25s;
+        }
+
+        .btn-abrir:hover {
+            background: var(--c-rose-dark);
+            color: var(--c-text);
+        }
+
+        .envelope.aberto .btn-abrir {
+            display: none;
+        }
+
+        .carta {
+            display: none;
+            padding: 2.2rem 2rem;
+            animation: fade-up 0.5s ease forwards;
+        }
+
+        .envelope.aberto .carta {
+            display: block;
+        }
+
+        .carta p {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 20px;
+            font-weight: 300;
+            color: var(--c-text2);
+            line-height: 2;
+            min-height: 1.5em;
+        }
+
+        .envelope-inicial .btn-abrir {
+            display: none !important;
+        }
+
+        .envelope-inicial .carta {
+            display: block;
+        }
+
+        .cursor-digitando::after {
+            content: '|';
+            color: var(--c-rose);
+            animation: piscar 0.65s step-end infinite;
+            margin-left: 1px;
+        }
+
+        @keyframes piscar {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .final-wrapper {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 3rem 1.5rem 4rem;
+            text-align: center;
+        }
+
+        .final-wrapper.mostrar {
+            display: flex;
+            animation: fade-up 1s ease forwards;
+        }
+
+        .frase-final {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: clamp(26px, 5vw, 38px);
+            color: var(--c-rose);
+            line-height: 1.4;
+        }
+
+        .foto-final {
+            max-width: 280px;
+            width: 100%;
+            border-radius: 3px;
+            border: 1px solid var(--c-border2);
+            display: block;
+        }
+
+        .envelope.tremendo {
+            animation: tremer 0.5s ease;
+        }
+
+        @keyframes tremer {
+            0% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-4px);
+            }
+
+            40% {
+                transform: translateX(4px);
+            }
+
+            60% {
+                transform: translateX(-3px);
+            }
+
+            80% {
+                transform: translateX(3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .particula {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            font-size: 18px;
+            animation: subir-particula linear forwards;
+        }
+
+        @keyframes subir-particula {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0.85;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header-pagina">
+        <div class="header-overlay"></div>
+        <div class="header-conteudo-novo">
+            <h1>Março: O Mês Literalmente da Sua Vida</h1>
+            <p>13 de Março de 2026</p>
+            <div class="contador-aniversario">
+                Faltam <strong id="diasRestantes">—</strong> dias para o seu aniversário 🎂
+            </div>
+            <a href="../index.html" class="btn-padrao">⬅ Início</a>
+        </div>
+    </header>
+
+    <main class="conteudo2">
+
+        <section class="conteudo-box" style="align-items:center; text-align:center;">
+            <p class="paragrafo1" style="font-family:var(--font-serif); font-style:italic; font-size:18px;">
+                Antes de continuar, toque aqui ❤️
+            </p>
+            <button class="btn-musica" id="btnMusica" onclick="tocarMusica()">
+                ♫ &nbsp; Toque aqui antes de continuar
+            </button>
+        </section>
+
+        <audio id="musica" loop>
+            <source src="../music/Edd_Sheeran_-_Perfect_(mp3.pm).mp3" type="audio/mp3">
+        </audio>
+
+        <div class="cartas-container">
+
+            <div class="envelope envelope-inicial">
+                <div class="tampa"></div>
+                <div class="carta">
+                    <p
+                        data-text="Hoje o presente é um pouco diferente. Cartas escritas fisicamente são boas, mas nada como deixar cartas guardadas no lugar que fiz pra você sempre se sentir especial, amada e diferente de qualquer outra pessoa.">
+                    </p>
+                </div>
+            </div>
+
+            <div class="envelope">
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 &nbsp; Abrir carta</button>
+                <div class="tampa"></div>
+                <div class="carta">
+                    <p
+                        data-text="Hoje o presente não é físico mas sim algo pensado com muito carinho na pessoa que você é pra mim. Na minha concepção isso vale mais do que qualquer coisa.">
+                    </p>
+                </div>
+            </div>
+
+            <div class="envelope">
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 &nbsp; Abrir carta</button>
+                <div class="tampa"></div>
+                <div class="carta">
+                    <p
+                        data-text="Existem pessoas que passam pela nossa vida… e existem pessoas que mudam completamente a forma como a gente vê o mundo.">
+                    </p>
+                </div>
+            </div>
+
+            <div class="envelope">
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 &nbsp; Abrir carta</button>
+                <div class="tampa"></div>
+                <div class="carta">
+                    <p
+                        data-text="Desde que você entrou na minha vida, os dias ficaram mais leves, os planos ficaram maiores e o futuro começou a parecer mais bonito.">
+                    </p>
+                </div>
+            </div>
+
+            <div class="envelope">
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 &nbsp; Abrir carta</button>
+                <div class="tampa"></div>
+                <div class="carta">
+                    <p data-text="Você não é só alguém especial para mim. Você é alguém que eu admiro profundamente.">
+                    </p>
+                </div>
+            </div>
+
+            <div class="envelope">
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 &nbsp; Abrir carta</button>
+                <div class="tampa"></div>
+                <div class="carta">
+                    <p
+                        data-text="E hoje eu só queria registrar isso aqui: você é uma das melhores coisas que já aconteceram na minha vida.">
+                    </p>
+                </div>
+            </div>
+
+            <div class="envelope">
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 &nbsp; Abrir carta</button>
+                <div class="tampa"></div>
+                <div class="carta">
+                    <p
+                        data-text="E como você me faz tão bem não tem porque de eu não te fazer se sentir especial sempre que eu puder.">
+                    </p>
+                </div>
+            </div>
+
+            <div class="envelope">
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 &nbsp; Abrir carta</button>
+                <div class="tampa"></div>
+                <div class="carta">
+                    <p
+                        data-text="Seu dia está perto de chegar, o dia em que você celebra mais um ano de vida e mais um ano de conquista. Você cresceu e tem crescido muito nesses últimos meses. Você é incrível, você é invencível!">
+                    </p>
+                </div>
+            </div>
+
+            <div class="envelope">
+                <button class="btn-abrir" onclick="abrirEsteEnvelope(this)">💌 &nbsp; Abrir carta</button>
+                <div class="tampa"></div>
+                <div class="carta">
+                    <p
+                        data-text="Se algum dia você duvidar do quanto é importante para mim… volte nesta página e leia essas cartas novamente.">
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="final-wrapper" id="finalWrapper">
+            <p class="frase-final">❤️ Eu te amo muito ❤️</p>
+            <img src="../img/thiagoBruna.jpg" alt="Nós dois" class="foto-final">
+        </div>
+
+    </main>
+
+    <script>
+        (function () {
+            const diff = Math.ceil((new Date('2026-03-21') - new Date()) / 86400000);
+            const el = document.getElementById('diasRestantes');
+            el.textContent = diff > 0 ? diff : diff === 0 ? 'HOJE' : 'já passou 🎉';
+        })();
+
+        document.querySelectorAll('.envelope-inicial .carta p[data-text]').forEach(p => {
+            p.textContent = p.dataset.text;
+        });
+
+        function tocarMusica() {
+            const audio = document.getElementById('musica');
+            const btn = document.getElementById('btnMusica');
+            if (audio.paused) {
+                audio.play().catch(() => { });
+                btn.innerHTML = '♫ &nbsp; Tocando Perfect — Ed Sheeran';
+                btn.classList.add('tocando');
+            } else {
+                audio.pause();
+                btn.innerHTML = '♫ &nbsp; Toque aqui antes de continuar';
+                btn.classList.remove('tocando');
+            }
+        }
+
+        function soltarParticulas(x, y, qtd = 6) {
+            const emojis = ['❤️', '🌹', '✨', '💖', '🌸', '💕'];
+            for (let i = 0; i < qtd; i++) {
+                const el = document.createElement('span');
+                el.className = 'particula';
+                el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                el.style.left = (x + (Math.random() - 0.5) * 100) + 'px';
+                el.style.top = y + 'px';
+                el.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
+                document.body.appendChild(el);
+                el.addEventListener('animationend', () => el.remove());
+            }
+        }
+
+        const totalEnvelopes = document.querySelectorAll('.envelope:not(.envelope-inicial)').length;
+        let abertos = 0;
+
+        function abrirEsteEnvelope(btn) {
+            const envelope = btn.closest('.envelope');
+            const carta = envelope.querySelector('.carta');
+            const p = carta.querySelector('p');
+            const texto = p.dataset.text || '';
+
+            const rect = btn.getBoundingClientRect();
+            soltarParticulas(rect.left + rect.width / 2, rect.top + window.scrollY);
+
+            envelope.classList.add('tremendo');
+            setTimeout(() => envelope.classList.remove('tremendo'), 600);
+
+            envelope.classList.add('aberto');
+            carta.style.display = 'block';
+            p.textContent = '';
+            p.classList.add('cursor-digitando');
+
+            let i = 0;
+            const interval = setInterval(() => {
+                p.textContent += texto[i++];
+                if (i >= texto.length) {
+                    clearInterval(interval);
+                    p.classList.remove('cursor-digitando');
+                    abertos++;
+                    if (abertos >= totalEnvelopes) {
+                        setTimeout(() => {
+                            const fw = document.getElementById('finalWrapper');
+                            fw.classList.add('mostrar');
+                            fw.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            for (let k = 0; k < 24; k++) {
+                                setTimeout(() => soltarParticulas(Math.random() * window.innerWidth, window.innerHeight * 0.6), k * 100);
+                            }
+                        }, 700);
+                    }
+                }
+            }, 22);
+        }
+    </script>
+
+</body>
+
+</html>

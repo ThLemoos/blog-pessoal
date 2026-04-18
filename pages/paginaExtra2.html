@@ -4,19 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destino 2</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="img/fundo.jpg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+    <title>Surpresas que aquecem o coração</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../img/fundo.jpg">
 
     <script>
         function verificarCodigo() {
             const codigoCorreto = "FALTAPOUCO";
             const digitado = document.getElementById("codigo").value;
-
             if (digitado === codigoCorreto) {
                 window.location.href = "paginaExtra3.html";
             } else {
@@ -24,28 +19,21 @@
             }
         }
     </script>
-
 </head>
 
 <body>
 
     <header class="header-pagina-aliancas">
-
         <div class="header-overlay-aliancas"></div>
-
         <div class="header-conteudo-novo-aliancas">
             <h1>Surpresas que aquecem o coração</h1>
-
-            <a href="pagina3.html" class="btn-padrao">
-                ⬅ Voltar
-            </a>
+            <a href="pagina3.html" class="btn-padrao">⬅ Voltar</a>
         </div>
-
     </header>
 
     <main class="conteudo2">
+
         <section class="conteudo-box">
-            <img class="oi" src="">
             <p class="paragrafo1">
                 Você chegou até aqui.<br>
                 E eu espero que seu coração esteja sorrindo.
@@ -55,12 +43,9 @@
                 Outras, aquecem a alma.<br>
                 A próxima é um pouco dos dois.
             </p>
-
             <div class="frase">
                 <p>📍 Segundo destino: Casa de alguém que gosta muito de você 💕</p>
-                <adress>
-                    <p>Endereço: Av. Antonio Cunha 1795</p>
-                </adress>
+                <address>Endereço: Av. Antonio Cunha 1795</address>
             </div>
             <p class="paragrafo1">
                 Lá você vai receber um pequeno presente<br>
@@ -73,47 +58,34 @@
         </section>
 
         <section class="conteudo-box">
-            <section class="checkin">
+            <div class="checkin">
                 <h2>📍 Check-in do momento</h2>
-
-                <p>
-                    Tire uma foto deste instante especial <br>
-                    e envie para mim.
-                    Quero guardar cada passo do nosso dia ❤️
+                <p>Tire uma foto deste instante especial e envie para mim.<br>Quero guardar cada passo do nosso dia ❤️
                 </p>
-
-                <a href="https://wa.me/5521975930204" target="_blank" class="btn-checkin">
-                    📸 Enviar check-in pelo WhatsApp
-                </a>
-
-                <small>
-                    *Ao clicar, tire a foto e envie no WhatsApp 💕
-                </small>
-            </section>
+                <a href="https://wa.me/5521975930204" target="_blank" class="btn-checkin">📸 Enviar check-in pelo
+                    WhatsApp</a>
+                <small>*Ao clicar, tire a foto e envie no WhatsApp 💕</small>
+            </div>
 
             <div class="caixa-codigo">
-                <input type="text" id="codigo" placeholder="FALTAPOUCO">
-
+                <input type="text" id="codigo" placeholder="Digite o código">
                 <button class="btn-romantico" onclick="verificarCodigo()">
-                    💖 Desbloquear Destino Final<br>
-                    Está pronta?
+                    💖 Desbloquear Destino Final — Está pronta?
                 </button>
-
-                <p id="erro">Código incorreto 💔</p>
+                <p id="erro" style="display:none; color:#e87070; font-size:13px;">Código incorreto 💔</p>
             </div>
         </section>
 
         <section class="conteudo-box">
-            <section class="galeria">
-                <h2>📸 Segundo Check-in</h2><br>
-
+            <div class="galeria">
+                <h2>📸 Segundo Check-in</h2>
                 <div class="fotos">
-                    <img class="oi" src="img/segundoChekin.jpeg" alt="Segundo Destino">
+                    <img src="../img/segundoChekin.jpeg" alt="Segundo Destino">
                 </div>
-            </section>
+            </div>
         </section>
-    </main>
 
+    </main>
 </body>
 
 </html>

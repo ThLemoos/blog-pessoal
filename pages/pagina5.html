@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz dois meses de namoro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../img/fundo.jpg">
+    <script src="../script/senha2.js"></script>
+</head>
+
+<body>
+
+    <div id="telaSenha" class="overlay">
+        <div class="box-login">
+            <h2>Acesso Restrito</h2>
+            <p>Digite a senha para acessar:</p>
+            <p><em>"O que nasce com a pessoa, segundo o Direito Civil?"</em></p>
+            <form onsubmit="verificarSenha(); return false;">
+                <input type="password" id="senhaDigitada" placeholder="••••••••">
+                <button type="button" onclick="verificarSenha()">Entrar</button>
+            </form>
+            <p id="erro" class="erro">Senha incorreta 💔</p>
+        </div>
+    </div>
+
+    <header class="header-pagina">
+        <div class="header-overlay"></div>
+        <div class="header-conteudo-novo">
+            <h1>Feliz dois meses de namoro</h1>
+            <a href="../index.html" class="btn-padrao">⬅ Início</a>
+        </div>
+    </header>
+
+    <main class="conteudo2">
+
+        <section class="conteudo-musica">
+            <p class="paragrafo1"
+                style="text-align:center; font-family: var(--font-serif); font-style:italic; font-size:18px; line-height:2.2;">
+                Você já encontrou o presente,<br>
+                mas essa surpresa eu quis deixar registrada aqui.<br><br>
+
+                Não é só sobre o que eu te dei,<br>
+                é sobre o carinho, o cuidado e o amor<br>
+                que eu coloco em cada detalhe quando penso em você.<br><br>
+
+                Esse cantinho vai ficar guardado<br>
+                como um pedaço da nossa história,<br>
+                pra lembrar que, mesmo nas coisas simples,<br>
+                eu sempre penso em te fazer sorrir.<br><br>
+
+                Feliz dois meses de namoro.<br>
+                Que venham muitos outros,<br>
+                com mais surpresas, mais amor<br>
+                e a gente, sempre juntos. 💖
+            </p>
+
+            <p id="textoSuspense" class="texto-suspense">
+                Clique abaixo para revelar sua surpresa 💖
+            </p>
+
+            <button id="btnRevelar" class="btn-revelar" onclick="revelarSurpresa()">
+                Revelar surpresa
+            </button>
+
+            <img id="imagemSurpresa" src="../img/surpresaDoisMeses.jpg" alt="Surpresa" class="imagem-surpresa">
+        </section>
+
+    </main>
+
+    <script>
+        function revelarSurpresa() {
+            document.getElementById('textoSuspense').style.display = 'none';
+            document.getElementById('btnRevelar').style.display = 'none';
+            const img = document.getElementById('imagemSurpresa');
+            img.style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>

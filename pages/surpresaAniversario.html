@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoje é o seu dia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../img/fundo.jpg">
+
+    <style>
+        .charada {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+
+        .charada-titulo {
+            font-family: var(--font-serif);
+            font-size: 26px;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--c-rose-light);
+            text-align: center;
+        }
+
+        .imagem-charada {
+            display: flex;
+            justify-content: center;
+        }
+
+        .imagem-charada img {
+            max-width: 320px;
+            width: 100%;
+            border-radius: 3px;
+            border: 1px solid var(--c-border2);
+            filter: brightness(0.9) saturate(0.85);
+            transition: filter 0.4s;
+        }
+
+        .imagem-charada img:hover {
+            filter: brightness(1) saturate(1);
+        }
+
+        .regras {
+            background: var(--c-bg3);
+            border: 1px solid var(--c-border2);
+            border-left: 3px solid var(--c-rose-dim);
+            border-radius: 3px;
+            padding: 1.4rem 1.6rem;
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--c-text3);
+            line-height: 1.9;
+        }
+
+        .regras strong {
+            color: var(--c-rose);
+            font-weight: 500;
+        }
+
+        .charada-input {
+            width: 100%;
+            padding: 13px 18px;
+            background: var(--c-bg3);
+            border: 1px solid var(--c-border2);
+            border-radius: 3px;
+            color: var(--c-text);
+            font-family: var(--font-sans);
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.25s;
+            letter-spacing: 1px;
+        }
+
+        .charada-input:focus {
+            border-color: var(--c-rose-dim);
+        }
+
+        .charada-input::placeholder {
+            color: var(--c-text4);
+        }
+
+        .charada-input:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+        .btn-descobrir {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            border: 1px solid var(--c-rose-dim);
+            border-radius: 3px;
+            font-family: var(--font-sans);
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--c-rose);
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .btn-descobrir:hover:not(:disabled) {
+            background: var(--c-rose-dark);
+            color: var(--c-text);
+        }
+
+        .btn-descobrir:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .tentativas-bar {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .bolinha {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--c-rose-dim);
+            border: 1px solid var(--c-rose);
+            transition: background 0.3s, transform 0.25s, border-color 0.3s;
+        }
+
+        .bolinha.usada {
+            background: var(--c-bg3);
+            border-color: var(--c-border);
+            transform: scale(0.75);
+        }
+
+        .tentativas-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--c-text4);
+            text-align: center;
+            margin-top: 6px;
+        }
+
+        .resultado-msg {
+            padding: 1rem 1.4rem;
+            border-radius: 3px;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .resultado-msg.erro {
+            display: block;
+            background: rgba(232, 112, 112, 0.07);
+            border: 1px solid rgba(232, 112, 112, 0.2);
+            color: #e87070;
+        }
+
+        .resultado-msg.acerto {
+            display: block;
+            background: rgba(112, 200, 140, 0.07);
+            border: 1px solid rgba(112, 200, 140, 0.2);
+            color: #70c88c;
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .resultado-msg.falhou {
+            display: block;
+            background: rgba(180, 60, 60, 0.08);
+            border: 1px solid rgba(180, 60, 60, 0.2);
+            color: #d07070;
+            text-align: center;
+        }
+
+        .tela-bloqueada {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 55vh;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .tela-bloqueada h2 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--c-text3);
+        }
+
+        .tela-bloqueada p {
+            font-size: 14px;
+            color: var(--c-text4);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header-pagina">
+        <div class="header-overlay"></div>
+        <div class="header-conteudo-novo">
+            <h1>Chegou o seu grande dia!</h1>
+            <p>21 de Março de 2026</p>
+            <a href="../index.html" class="btn-padrao">⬅ Início</a>
+        </div>
+    </header>
+
+    <main class="conteudo2" id="conteudo-principal">
+
+        <section class="conteudo-box">
+            <h2
+                style="font-family:var(--font-serif);font-style:italic;font-size:28px;font-weight:300;color:var(--c-rose-light);text-align:center;">
+                Feliz aniversário, minha princesa ❤️
+            </h2>
+
+            <p class="paragrafo1">
+                Hoje não é apenas mais um dia no calendário.<br>
+                Hoje é o dia em que o mundo ficou um pouco melhor sem nem perceber.<br>
+                Porque foi exatamente hoje que nasceu uma pessoa que mais tarde iria mudar completamente a minha vida.
+            </p>
+
+            <p class="paragrafo1">
+                Entre bilhões de pessoas no planeta…<br>
+                eu tive a sorte absurda de encontrar você.<br>
+                E desde então tudo ficou diferente.<br>
+                Os dias ficaram mais leves.<br>
+                Os planos ficaram maiores.<br>
+                E o futuro passou a ter muito mais sentido.
+            </p>
+
+            <p class="paragrafo1">
+                Você não é só alguém importante pra mim.<br>
+                Você é alguém que eu admiro.<br>
+                Alguém que eu respeito.<br>
+                Alguém que eu tenho orgulho de ter ao meu lado.
+            </p>
+
+            <p class="paragrafo1">
+                E se um dia alguém me perguntar qual foi uma das melhores decisões da minha vida…<br>
+                eu provavelmente vou responder:<br>
+                <em style="font-family:var(--font-serif);font-size:18px;">"ter escolhido amar você todos os dias."</em>
+            </p>
+
+            <div class="frase">
+                Mas hoje não é só sobre palavras.<br>
+                Hoje também tem um pequeno mistério. 😏
+            </div>
+
+            <p class="paragrafo1">
+                Você sabe o quanto eu gosto de te ver feliz e o quanto eu gosto de fazer você se divertir.
+                E não é só porque é seu aniversário que eu não pensaria em algo que possa te tirar umas risadas
+                — ou querer me matar depois.
+            </p>
+            <p class="paragrafo1">
+                Então pensei em algo referente ao seu presente de aniversário. A situação é a seguinte:
+            </p>
+        </section>
+
+        <section class="conteudo-box">
+            <div class="charada">
+
+                <h2 class="charada-titulo">🎁 Charada do Presente 🎁</h2>
+
+                <p class="paragrafo1" style="text-align:center;">O que será que tem nessa caixa?</p>
+
+                <div class="imagem-charada">
+                    <img src="../img/presenteAniversario.jpeg" alt="Caixa misteriosa">
+                </div>
+
+                <div class="regras">
+                    Seu presente de aniversário consiste em <strong>dois</strong>:<br><br>
+                    Sendo um o presente real — algo que você gosta.<br>
+                    E o outro é algo que não seria considerado um presente
+                    (bom… eu não gostaria de recebê-lo).<br><br>
+                    Se conseguir adivinhar, eu te entrego o presente <strong>sem pegadinhas</strong>.<br>
+                    Caso contrário… seu presente será um pouco <strong>diferenciado</strong>.<br><br>
+                    <strong>REGRAS: sem dicas, sem perguntas. Errando as 5 alternativas, a escolha de entrega — ou não —
+                        do presente oficial fica comigo. Você será obrigada a abrir a caixa e descobrir por si só o que
+                        tem nela.
+                        Será que é o presente oficial ou não?<br>
+                        QUE OS JOGOS COMECEM!</strong><br><br>
+                    Você só terá <strong>5 tentativas</strong>. Então… <strong>pense bem!</strong>
+                </div>
+
+                <input type="text" id="resposta" class="charada-input" placeholder="Digite sua resposta…"
+                    onkeydown="if(event.key==='Enter') verificar()">
+
+                <button class="btn-descobrir" id="btn-descobrir" onclick="verificar()">
+                    Descobrir
+                </button>
+
+                <div>
+                    <div class="tentativas-bar">
+                        <span class="bolinha" id="b1"></span>
+                        <span class="bolinha" id="b2"></span>
+                        <span class="bolinha" id="b3"></span>
+                        <span class="bolinha" id="b4"></span>
+                        <span class="bolinha" id="b5"></span>
+                    </div>
+                    <p class="tentativas-label" id="tentativas-label">5 tentativas restantes</p>
+                </div>
+
+                <div class="resultado-msg" id="resultado"></div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        if (Date.now() < new Date('2026-03-21T00:00:00').getTime()) {
+            document.getElementById('conteudo-principal').innerHTML = `
+        <div class="tela-bloqueada">
+          <h2>🔒 Surpresa ainda não liberada</h2>
+          <p>Volte no dia 21 de março ❤️</p>
+        </div>`;
+        }
+
+        let tentativas = 5;
+        const respostaCorreta = 'xiforinfula';
+
+        function atualizarBolinhas() {
+            const usadas = 5 - tentativas;
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('b' + i).classList.toggle('usada', i <= usadas);
+            }
+            document.getElementById('tentativas-label').textContent =
+                tentativas === 1 ? '1 tentativa restante' : tentativas + ' tentativas restantes';
+        }
+
+        function travar() {
+            document.getElementById('resposta').disabled = true;
+            document.getElementById('btn-descobrir').disabled = true;
+        }
+
+        function verificar() {
+            if (tentativas <= 0) return;
+            const val = document.getElementById('resposta').value.toLowerCase().trim();
+            const resultado = document.getElementById('resultado');
+
+            if (val.includes(respostaCorreta)) {
+                resultado.className = 'resultado-msg acerto';
+                resultado.innerHTML = '🎉 Você acertou! Parece que você me conhece bem…';
+                travar();
+                return;
+            }
+
+            tentativas--;
+            atualizarBolinhas();
+
+            if (tentativas > 0) {
+                resultado.className = 'resultado-msg erro';
+                resultado.innerHTML = '❌ Não foi dessa vez… tente novamente.';
+                document.getElementById('resposta').value = '';
+                document.getElementById('resposta').focus();
+            } else {
+                resultado.className = 'resultado-msg falhou';
+                resultado.innerHTML = '⚠️ Infelizmente você não conseguiu…<br>Agora a escolha é minha. 😏';
+                travar();
+                const msg = encodeURIComponent('Eu errei todas as tentativas :(');
+                setTimeout(() => window.open(`https://wa.me/5521975930204?text=${msg}`, '_blank'), 1200);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

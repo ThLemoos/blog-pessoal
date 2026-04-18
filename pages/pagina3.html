@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Começo de Tudo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../img/fundo.jpg">
+    <script src="../script/senha.js"></script>
+
+    <script>
+        function verificarCodigo() {
+            const codigoCorreto = "NAOMEMATA";
+            const digitado = document.getElementById("codigo").value;
+            if (digitado === codigoCorreto) {
+                window.location.href = "paginaExtra2.html";
+            } else {
+                document.getElementById("erro").style.display = "block";
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="telaSenha" class="overlay">
+        <div class="box-login">
+            <h2>Acesso Restrito</h2>
+            <p>Digite a senha para acessar:</p>
+            <p><em>"Data do dia em que eu te pedi em namoro"</em></p>
+            <form onsubmit="verificarSenha(); return false;">
+                <input type="password" id="senhaDigitada" placeholder="••••••••">
+                <button type="button" onclick="verificarSenha()">Entrar</button>
+            </form>
+            <p id="erro" class="erro">Senha incorreta 💔</p>
+        </div>
+    </div>
+
+    <header class="header-pagina-aliancas">
+        <div class="header-overlay-aliancas"></div>
+        <div class="header-conteudo-novo-aliancas">
+            <h1>O Começo de Tudo</h1>
+            <p>Aquela surpresa especial do nosso dia 28/11/2025</p>
+            <a href="../index.html" class="btn-padrao">⬅ Início</a>
+        </div>
+    </header>
+
+    <main class="conteudo2">
+
+        <section class="conteudo-box">
+            <p class="paragrafo1">Hoje eu preparei algo especial para você.</p>
+            <p class="paragrafo1">
+                Não é só um passeio.<br>
+                Não é só uma surpresa.<br>
+                É uma experiência feita com amor, pensada em cada detalhe.
+            </p>
+            <p class="paragrafo1">
+                Para começar, vá até o primeiro lugar onde toda a surpresa começa:<br>
+                Um lugar de carinho, acolhimento e boas memórias.
+            </p>
+            <div class="frase">
+                <p>📍 Primeiro destino: Minha casa ❤️</p>
+                <address>Endereço: Rua divisão, 69</address>
+            </div>
+            <p class="paragrafo1">
+                Lá, alguém muito importante para mim<br>
+                estará esperando você com um gesto simples,<br>
+                mas cheio de significado.
+            </p>
+            <p class="paragrafo1">
+                Após chegar no endereço, você receberá instruções<br>
+                para achar um código que desbloqueará o próximo destino.
+            </p>
+        </section>
+
+        <section class="conteudo-box">
+            <div class="checkin">
+                <h2>📍 Check-in do momento</h2>
+                <p>Tire uma foto deste instante especial e envie para mim.<br>Quero guardar cada passo do nosso dia ❤️
+                </p>
+                <a href="https://wa.me/5521975930204" target="_blank" class="btn-checkin">📸 Enviar check-in pelo
+                    WhatsApp</a>
+                <small>*Ao clicar, tire a foto e envie no WhatsApp 💕</small>
+            </div>
+
+            <div class="caixa-codigo">
+                <input type="text" id="codigo" placeholder="Digite o código">
+                <button class="btn-romantico" onclick="verificarCodigo()">💖 Desbloquear próximo destino</button>
+                <p id="erro" style="display:none; color:#e87070; font-size:13px;">Código incorreto 💔</p>
+            </div>
+        </section>
+
+        <section class="conteudo-box">
+            <div class="galeria">
+                <h2>📸 Primeiro Check-in</h2>
+                <div class="fotos">
+                    <img src="../img/primeiroChekin.jpeg" alt="Primeiro destino">
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>

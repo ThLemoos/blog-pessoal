@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz um mês de namoro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../img/fundo.jpg">
+
+    <script>
+        function enviarWhats() {
+            const prato = document.getElementById("prato").value;
+            if (prato.trim() === "") {
+                alert("Me conta seu prato favorito antes 💕");
+                return;
+            }
+            const mensagem = `${prato} `;
+            const numero = "5521975930204";
+            const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, "_blank");
+        }
+    </script>
+</head>
+
+<body>
+
+    <header class="header-pagina">
+        <div class="header-overlay"></div>
+        <div class="header-conteudo-novo">
+            <h1>Feliz um mês de namoro</h1>
+            <a href="../index.html" class="btn-padrao">⬅ Início</a>
+        </div>
+    </header>
+
+    <main class="conteudo2">
+
+        <section class="conteudo-box">
+            <p class="paragrafo1">
+                Pra começar, quero te dizer que valeu a pena demais viver cada momento até agora com você.
+            </p>
+            <p class="paragrafo1">
+                Você é uma pessoa que chegou tão rápido na minha vida, mas que já tem um significado tão grande
+                que não tem nem ideia. Como sentir um amor e um carinho tão grande por alguém em apenas um mês?
+                Não sei explicar, mas é o que sinto por você. E posso te dizer com toda certeza no mundo que não
+                é emoção, mas sim a certeza de que o que eu sinto por você é real e sincero.
+            </p>
+            <p class="paragrafo1">
+                Esse seu jeito <strong>Bruna de ser</strong> mexe comigo desde que eu te conheci. Desde a primeira
+                mensagem, desde o primeiro contato e a cada dia que eu passo ao seu lado eu só te admiro ainda
+                mais.<br><br>
+                Eu amo o seu jeito, o seu cheiro, o seu beijo, a sua forma de falar e tudo que existe em você.<br><br>
+                Todos os dias eu penso como eu posso ser melhor pra você, não por questão de querer mudar o meu jeito,
+                mas sim porque você merece tudo de bom e de melhor que eu possa oferecer como homem.
+            </p>
+            <p class="paragrafo1">
+                Você é especial demais pra mim, meu amor.<br>
+                Não existe palavras pra descrever o que eu sinto por você, mas eu tento de qualquer forma demonstrar
+                isso.
+            </p>
+            <p class="paragrafo1">
+                Uma das coisas que eu mais valorizo é em te fazer feliz e te ver sorrir, então espero que nesse
+                momento eu já tenha tirado algum sorriso seu e que seu coração esteja cheio de felicidade.
+            </p>
+            <p class="paragrafo1">
+                Você é uma mulher incrível, minha princesa. E eu vou continuar fazendo de tudo pra te mostrar isso.<br>
+                Obrigado por simplesmente ser a pessoa que você é, e por deixar eu cuidar e zelar por essa preciosidade
+                que é Bruna Victória.
+            </p>
+            <p class="paragrafo1">
+                Bom, eu não me saio muito bem com palavras mas por você eu tento e espero que isso te faça feliz
+                nesse dia que é importante pra nós.
+            </p>
+            <p class="paragrafo1">
+                A melhor decisão que eu tomei nesse ano de 2025 foi te mandar mensagem e te mostrar que realmente
+                estava interessado em você, porque ter você na minha vida a torna muito melhor!
+            </p>
+            <div class="frase">
+                Eu Te Amo e não é da boca pra fora que eu digo isso<br>
+                Feliz um mês de namoro pra gente, meu amor ❤️
+            </div>
+            <div class="galeria">
+                <div class="fotos">
+                    <img src="../img/chekinFinal1.jpeg" alt="Nós Dois">
+                </div>
+            </div>
+        </section>
+
+        <section class="conteudo-box">
+            <div class="convite">
+                <h2>Um convite especial 💌</h2>
+                <p class="paragrafo1" style="text-align:center;">
+                    Quero te convidar para um almoço aqui em casa, feito por mim,
+                    com todo carinho do mundo.<br>
+                    Podemos almoçar e depois assistir uma das suas séries favoritas, o que acha?<br>
+                    Pode me responder digitando abaixo:
+                </p>
+                <input type="text" id="prato" placeholder="Digite aqui" class="input-prato">
+                <button class="btn-enviar" onclick="enviarWhats()">Enviar 💖</button>
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>
